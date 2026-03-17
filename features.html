@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>功能 - 戒了吗 Have You Quit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#ff4757',
+                        dark: '#0a0a0a',
+                        card: '#111111',
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: 'Noto Sans SC', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        html { scroll-behavior: smooth; }
+        
+        .grid-bg {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        
+        .card {
+            background: rgba(17, 17, 17, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card:hover {
+            border-color: rgba(255, 71, 87, 0.5);
+            transform: translateY(-4px);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #fff 0%, #a5a5a5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .text-gradient-accent {
+            background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.4;
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        }
+        
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover .feature-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+    </style>
+</head>
+<body class="grid-bg overflow-x-hidden">
+    <!-- Glowing Orbs -->
+    <div class="orb bg-red-900 w-96 h-96 top-20 left-20 fixed"></div>
+    <div class="orb bg-purple-900 w-80 h-80 bottom-20 right-20 fixed"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 border-b border-white/10 backdrop-blur-xl bg-dark/80">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-accent rounded flex items-center justify-center text-xl font-black">💪</div>
+                    <div>
+                        <span class="text-xl font-bold mono">HAVE YOU QUIT?</span>
+                        <p class="text-xs text-gray-500 mono">戒了吗 v2.0</p>
+                    </div>
+                </a>
+                <div class="hidden md:flex items-center space-x-8 mono text-sm">
+                    <a href="/#features" class="text-gray-400 hover:text-white transition">[功能]</a>
+                    <a href="/#pricing" class="text-gray-400 hover:text-white transition">[订阅]</a>
+                    <a href="/#community" class="text-gray-400 hover:text-white transition">[社区]</a>
+                    <a href="/#download" class="bg-white text-dark px-6 py-2 rounded font-bold hover:bg-accent hover:text-white transition">[下载]</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-40 pb-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="mono text-accent text-sm">[01] FEATURES</span>
+                <h1 class="text-6xl md:text-7xl font-black mt-4 mb-6">
+                    功能_<span class="text-gradient-accent">详解</span>
+                </h1>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    每一个功能都为坚持而生，用科技对抗本能
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Details -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Feature 1 -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-32">
+                <div>
+                    <div class="inline-block bg-accent/10 border border-accent/30 px-4 py-2 rounded mb-6 mono text-sm text-accent">
+                        [FEATURE_01]
+                    </div>
+                    <h2 class="text-4xl font-black mb-6">每日打卡</h2>
+                    <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                        极简的打卡界面，一键完成每日目标。连续打卡天数可视化，每一次坚持都清晰可见。
+                        我们设计了最简洁的交互流程，让你没有任何借口跳过打卡。
+                    </p>
+                    <ul class="space-y-4 mono text-sm">
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span class="text-gray-300">一键打卡，无需复杂操作</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span class="text-gray-300">连续天数可视化展示</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span class="text-gray-300">打卡日历，回顾坚持历程</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span class="text-gray-300">补卡机制，偶尔忘记也能补救</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card rounded-2xl p-8">
+                    <div class="bg-dark rounded-xl p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="mono text-sm text-gray-400">2026 年 3 月</span>
+                            <span class="mono text-xs text-accent">STREAK: 21 DAYS</span>
+                        </div>
+                        <div class="grid grid-cols-7 gap-2 text-center text-sm">
+                            <div class="text-gray-500 text-xs">一</div>
+                            <div class="text-gray-500 text-xs">二</div>
+                            <div class="text-gray-500 text-xs">三</div>
+                            <div class="text-gray-500 text-xs">四</div>
+                            <div class="text-gray-500 text-xs">五</div>
+                            <div class="text-gray-500 text-xs">六</div>
+                            <div class="text-gray-500 text-xs">日</div>
+                            
+                            <div class="p-2 text-gray-600">1</div>
+                            <div class="p-2 text-gray-600">2</div>
+                            <div class="p-2 bg-accent text-white rounded">3</div>
+                            <div class="p-2 bg-accent text-white rounded">4</div>
+                            <div class="p-2 bg-accent text-white rounded">5</div>
+                            <div class="p-2 bg-accent text-white rounded">6</div>
+                            <div class="p-2 bg-accent text-white rounded">7</div>
+                            <div class="p-2 bg-accent text-white rounded">8</div>
+                            <div class="p-2 bg-accent text-white rounded">9</div>
+                            <div class="p-2 bg-accent text-white rounded">10</div>
+                            <div class="p-2 bg-accent text-white rounded">11</div>
+                            <div class="p-2 bg-accent text-white rounded">12</div>
+                            <div class="p-2 bg-accent text-white rounded">13</div>
+                            <div class="p-2 bg-accent text-white rounded">14</div>
+                            <div class="p-2 bg-accent text-white rounded">15</div>
+                            <div class="p-2 bg-accent text-white rounded">16</div>
+                            <div class="p-2 bg-accent text-white rounded">17</div>
+                            <div class="p-2 text-gray-600">18</div>
+                            <div class="p-2 text-gray-600">19</div>
+                            <div class="p-2 text-gray-600">20</div>
+                            <div class="p-2 text-gray-600">21</div>
+                            <div class="p-2 text-gray-600">22</div>
+                            <div class="p-2 text-gray-600">23</div>
+                            <div class="p-2 text-gray-600">24</div>
+                            <div class="p-2 text-gray-600">25</div>
+                            <div class="p-2 text-gray-600">26</div>
+                            <div class="p-2 text-gray-600">27</div>
+                            <div class="p-2 text-gray-600">28</div>
+                            <div class="p-2 text-gray-600">29</div>
+                            <div class="p-2 text-gray-600">30</div>
+                            <div class="p-2 text-gray-600">31</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-32">
+                <div class="order-2 lg:order-1">
+                    <div class="card rounded-2xl p-8">
+                        <div class="space-y-4">
+                            <div class="bg-dark border border-white/10 rounded-xl p-4 flex items-center justify-between">
+                                <div>
+                                    <p class="font-bold mono text-sm">🚭 戒烟</p>
+                                    <p class="text-xs text-gray-500 mono mt-1">每天 08:00</p>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-accent mono text-xs">ACTIVE</span>
+                                    <i class="fas fa-toggle-on text-2xl text-accent"></i>
+                                </div>
+                            </div>
+                            <div class="bg-dark border border-white/10 rounded-xl p-4 flex items-center justify-between">
+                                <div>
+                                    <p class="font-bold mono text-sm">😴 早睡</p>
+                                    <p class="text-xs text-gray-500 mono mt-1">每天 22:30</p>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-accent mono text-xs">ACTIVE</span>
+                                    <i class="fas fa-toggle-on text-2xl text-accent"></i>
+                                </div>
+                            </div>
+                            <div class="bg-dark border border-white/10 rounded-xl p-4 flex items-center justify-between">
+                                <div>
+                                    <p class="font-bold mono text-sm">🍬 戒糖</p>
+                                    <p class="text-xs text-gray-500 mono mt-1">每天 09:00</p>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-gray-600 mono text-xs">OFF</span>
+                                    <i class="fas fa-toggle-off text-2xl text-gray-600"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="inline-block bg-accent/10 border border-accent/30 px-4 py-2 rounded mb-6 mono text-sm text-accent">
+                        [FEATURE_02]
+                    </div>
+                    <h2 class="text-4xl font-black mb-6">智能提醒</h2>
+                    <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                        自定义提醒时间，温柔但坚定。不再忘记打卡，不再找借口。
+                        提醒文案可自定义，让每一次提醒都充满动力。
+                    </p>
+                    <ul class="space-y-4 mono text-sm">
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span class="text-gray-300">自定义提醒时间</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span class="text-gray-300">多个提醒时段设置</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span class="text-gray-300">可定制提醒文案</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span class="text-gray-300">智能免打扰模式</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-32">
+                <div>
+                    <div class="inline-block bg-accent/10 border border-accent/30 px-4 py-2 rounded mb-6 mono text-sm text-accent">
+                        [FEATURE_03]
+                    </div>
+                    <h2 class="text-4xl font-black mb-6">数据统计</h2>
+                    <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                        详细的数据统计，见证每一次进步。用数据说话，让改变可见。
+                        多维度分析你的坚持历程，发现更好的自己。
+                    </p>
+                    <ul class="space-y-4 mono text-sm">
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span class="text-gray-300">坚持天数统计</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span class="text-gray-300">打卡完成率分析</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span class="text-gray-300">习惯趋势图表</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span class="text-gray-300">数据导出功能</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card rounded-2xl p-8">
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="mono text-sm text-gray-400">本周完成率</span>
+                                <span class="mono text-sm text-accent">85.7%</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 85.7%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="mono text-sm text-gray-400">本月完成率</span>
+                                <span class="mono text-sm text-accent">92.3%</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 92.3%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="mono text-sm text-gray-400">总坚持天数</span>
+                                <span class="mono text-sm text-accent">127 DAYS</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-center pt-4 border-t border-white/10">
+                            <div>
+                                <div class="text-2xl font-bold text-accent">21</div>
+                                <div class="text-xs text-gray-500 mono mt-1">当前习惯</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-accent">156</div>
+                                <div class="text-xs text-gray-500 mono mt-1">总打卡</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-accent">8</div>
+                                <div class="text-xs text-gray-500 mono mt-1">成就徽章</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 4 -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="card rounded-2xl p-8">
+                        <div class="space-y-4">
+                            <div class="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 p-4 rounded-xl">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-3xl">🏆</span>
+                                    <div>
+                                        <p class="font-bold mono text-sm">FIRST_WEEK</p>
+                                        <p class="text-xs text-gray-400">坚持第一周</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-r from-blue-500/20 to-indigo-500/20 border border-blue-500/30 p-4 rounded-xl">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-3xl">⭐</span>
+                                    <div>
+                                        <p class="font-bold mono text-sm">ONE_MONTH</p>
+                                        <p class="text-xs text-gray-400">坚持一个月</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 p-4 rounded-xl opacity-50">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-3xl">👑</span>
+                                    <div>
+                                        <p class="font-bold mono text-sm">ONE_YEAR</p>
+                                        <p class="text-xs text-gray-400">坚持一年 (未解锁)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="inline-block bg-accent/10 border border-accent/30 px-4 py-2 rounded mb-6 mono text-sm text-accent">
+                        [FEATURE_04]
+                    </div>
+                    <h2 class="text-4xl font-black mb-6">成就系统</h2>
+                    <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                        解锁成就徽章，让坚持变得有趣。每一个里程碑都值得庆祝，
+                        收集控的最爱。
+                    </p>
+                    <ul class="space-y-4 mono text-sm">
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span class="text-gray-300">多样化成就徽章</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span class="text-gray-300">里程碑奖励</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span class="text-gray-300">成就分享功能</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-accent"></i>
+                            <span class="text-gray-300">隐藏成就探索</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider my-20"></div>
+
+    <!-- CTA Section -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-black mb-8">开始你的改变之旅</h2>
+            <p class="text-2xl text-gray-400 mb-12">免费下载，立即开始</p>
+            <a href="/#download" class="inline-block bg-white text-dark px-10 py-5 rounded-2xl font-bold mono text-lg hover:bg-accent hover:text-white transition">
+                [立即下载]
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-accent rounded flex items-center justify-center text-xl">💪</div>
+                        <div>
+                            <span class="text-lg font-bold mono">HAVE YOU QUIT?</span>
+                            <p class="text-xs text-gray-500 mono">戒了吗</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm mono">每一次坚持，都是对更好自己的投资。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 mono text-sm">[导航]</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm mono">
+                        <li><a href="/#features" class="hover:text-accent transition">[功能]</a></li>
+                        <li><a href="/#pricing" class="hover:text-accent transition">[订阅]</a></li>
+                        <li><a href="/#community" class="hover:text-accent transition">[社区]</a></li>
+                        <li><a href="/#download" class="hover:text-accent transition">[下载]</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 mono text-sm">[支持]</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm mono">
+                        <li><a href="/help.html" class="hover:text-accent transition">[帮助中心]</a></li>
+                        <li><a href="#" class="hover:text-accent transition">[联系我们]</a></li>
+                        <li><a href="#" class="hover:text-accent transition">[反馈建议]</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 mono text-sm">[法律]</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm mono">
+                        <li><a href="/privacy.html" class="hover:text-accent transition">[隐私政策]</a></li>
+                        <li><a href="/terms.html" class="hover:text-accent transition">[服务条款]</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-12 pt-8 text-center text-gray-500 text-xs mono">
+                <p>© 2026 HAVE YOU QUIT? // ALL RIGHTS RESERVED</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

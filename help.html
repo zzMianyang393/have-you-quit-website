@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帮助中心 - 戒了吗 Have You Quit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#ff4757',
+                        dark: '#0a0a0a',
+                        card: '#111111',
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: 'Noto Sans SC', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        html { scroll-behavior: smooth; }
+        
+        .grid-bg {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        
+        .card {
+            background: rgba(17, 17, 17, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card:hover {
+            border-color: rgba(255, 71, 87, 0.5);
+        }
+        
+        .text-gradient-accent {
+            background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.4;
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+        
+        .faq-item {
+            cursor: pointer;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="grid-bg overflow-x-hidden">
+    <div class="orb bg-red-900 w-96 h-96 top-20 left-20 fixed"></div>
+    <div class="orb bg-purple-900 w-80 h-80 bottom-20 right-20 fixed"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 border-b border-white/10 backdrop-blur-xl bg-dark/80">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-accent rounded flex items-center justify-center text-xl font-black">💪</div>
+                    <div>
+                        <span class="text-xl font-bold mono">HAVE YOU QUIT?</span>
+                        <p class="text-xs text-gray-500 mono">戒了吗 v2.0</p>
+                    </div>
+                </a>
+                <div class="hidden md:flex items-center space-x-8 mono text-sm">
+                    <a href="/#features" class="text-gray-400 hover:text-white transition">[功能]</a>
+                    <a href="/#pricing" class="text-gray-400 hover:text-white transition">[订阅]</a>
+                    <a href="/community.html" class="text-gray-400 hover:text-white transition">[社区]</a>
+                    <a href="/#download" class="bg-white text-dark px-6 py-2 rounded font-bold hover:bg-accent hover:text-white transition">[下载]</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-40 pb-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="mono text-accent text-sm">[SUPPORT]</span>
+                <h1 class="text-6xl md:text-7xl font-black mt-4 mb-6">
+                    帮助_<span class="text-gradient-accent">中心</span>
+                </h1>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    遇到问题？这里有你需要的一切
+                </p>
+            </div>
+            
+            <!-- Search -->
+            <div class="max-w-2xl mx-auto">
+                <div class="card rounded-2xl p-2 flex items-center">
+                    <i class="fas fa-search text-gray-400 ml-4"></i>
+                    <input type="text" placeholder="搜索帮助文档..." class="w-full bg-transparent px-4 py-3 text-white placeholder-gray-500 focus:outline-none mono">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-black mb-8 mono">[快速链接]</h2>
+            <div class="grid md:grid-cols-3 gap-6 mb-20">
+                <a href="#getting-started" class="card rounded-2xl p-6 group">
+                    <div class="w-12 h-12 bg-accent rounded flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">🚀</div>
+                    <h3 class="text-xl font-bold mb-2">新手入门</h3>
+                    <p class="text-gray-400 text-sm">快速上手，开始你的坚持之旅</p>
+                </a>
+                <a href="#subscription" class="card rounded-2xl p-6 group">
+                    <div class="w-12 h-12 bg-accent rounded flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">💳</div>
+                    <h3 class="text-xl font-bold mb-2">订阅管理</h3>
+                    <p class="text-gray-400 text-sm">了解订阅、续费和取消</p>
+                </a>
+                <a href="#account" class="card rounded-2xl p-6 group">
+                    <div class="w-12 h-12 bg-accent rounded flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">👤</div>
+                    <h3 class="text-xl font-bold mb-2">账户问题</h3>
+                    <p class="text-gray-400 text-sm">登录、注册和数据管理</p>
+                </a>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div id="getting-started">
+                <h2 class="text-3xl font-black mb-8 mono">[新手入门]</h2>
+                <div class="space-y-4 mb-20">
+                    <div class="card rounded-xl faq-item" onclick="this.classList.toggle('active')">
+                        <div class="p-6 flex items-center justify-between cursor-pointer">
+                            <h3 class="font-bold">如何开始使用？</h3>
+                            <i class="fas fa-chevron-down text-accent faq-icon transition"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed">
+                                1. 从 Google Play 下载并安装应用<br>
+                                2. 打开应用，创建账户或使用游客模式<br>
+                                3. 添加你想培养的习惯（如戒烟、早睡等）<br>
+                                4. 设置提醒时间<br>
+                                5. 每天按时打卡，开始你的坚持之旅
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card rounded-xl faq-item" onclick="this.classList.toggle('active')">
+                        <div class="p-6 flex items-center justify-between cursor-pointer">
+                            <h3 class="font-bold">如何添加习惯？</h3>
+                            <i class="fas fa-chevron-down text-accent faq-icon transition"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed">
+                                在应用首页点击"+ 添加习惯"按钮，选择预设习惯或自定义习惯名称，设置提醒时间后保存即可。免费版最多可添加 3 个习惯，专业版无限制。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card rounded-xl faq-item" onclick="this.classList.toggle('active')">
+                        <div class="p-6 flex items-center justify-between cursor-pointer">
+                            <h3 class="font-bold">如何打卡？</h3>
+                            <i class="fas fa-chevron-down text-accent faq-icon transition"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed">
+                                在应用首页找到对应的习惯卡片，点击"打卡"按钮即可完成。打卡后会显示连续天数和成就提示。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="subscription">
+                <h2 class="text-3xl font-black mb-8 mono">[订阅管理]</h2>
+                <div class="space-y-4 mb-20">
+                    <div class="card rounded-xl faq-item" onclick="this.classList.toggle('active')">
+                        <div class="p-6 flex items-center justify-between cursor-pointer">
+                            <h3 class="font-bold">如何订阅专业版？</h3>
+                            <i class="fas fa-chevron-down text-accent faq-icon transition"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed">
+                                在应用内点击"升级到专业版"，选择月度或年度订阅方案，通过 Google Play 完成支付即可。支付成功后立即解锁所有专业功能。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card rounded-xl faq-item" onclick="this.classList.toggle('active')">
+                        <div class="p-6 flex items-center justify-between cursor-pointer">
+                            <h3 class="font-bold">如何取消订阅？</h3>
+                            <i class="fas fa-chevron-down text-accent faq-icon transition"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed">
+                                打开 Google Play 应用 → 点击右上角头像 → 付款和订阅 → 订阅 → 找到"戒了吗" → 取消订阅。取消后当前周期仍可继续使用专业功能。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card rounded-xl faq-item" onclick="this.classList.toggle('active')">
+                        <div class="p-6 flex items-center justify-between cursor-pointer">
+                            <h3 class="font-bold">支持退款吗？</h3>
+                            <i class="fas fa-chevron-down text-accent faq-icon transition"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed">
+                                订阅后 7 天内如不满意，可通过 Google Play 申请退款。请在 Google Play 订单页面提交退款申请，我们会尽快处理。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="account">
+                <h2 class="text-3xl font-black mb-8 mono">[账户问题]</h2>
+                <div class="space-y-4">
+                    <div class="card rounded-xl faq-item" onclick="this.classList.toggle('active')">
+                        <div class="p-6 flex items-center justify-between cursor-pointer">
+                            <h3 class="font-bold">如何备份数据？</h3>
+                            <i class="fas fa-chevron-down text-accent faq-icon transition"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed">
+                                专业版用户可以在设置 → 数据管理 → 导出数据，将打卡记录导出为 CSV 文件。数据也会自动同步到云端，更换设备登录同一账户即可恢复。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card rounded-xl faq-item" onclick="this.classList.toggle('active')">
+                        <div class="p-6 flex items-center justify-between cursor-pointer">
+                            <h3 class="font-bold">如何删除账户？</h3>
+                            <i class="fas fa-chevron-down text-accent faq-icon transition"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed">
+                                在设置 → 账户管理 → 删除账户。删除后所有数据将被永久清除，此操作不可恢复。如需帮助请联系客服。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card rounded-xl faq-item" onclick="this.classList.toggle('active')">
+                        <div class="p-6 flex items-center justify-between cursor-pointer">
+                            <h3 class="font-bold">忘记密码怎么办？</h3>
+                            <i class="fas fa-chevron-down text-accent faq-icon transition"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed">
+                                在登录页面点击"忘记密码"，输入注册邮箱，我们会发送重置链接。点击链接即可设置新密码。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-black mb-6">需要更多帮助？</h2>
+            <p class="text-xl text-gray-400 mb-8">
+                如果这里没有找到你的问题，请联系我们的客服团队
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:support@haveyouquit.app" class="inline-block bg-white text-dark px-8 py-4 rounded-2xl font-bold mono hover:bg-accent hover:text-white transition">
+                    [发送邮件]
+                </a>
+                <a href="/#community" class="inline-block border border-white/20 px-8 py-4 rounded-2xl font-bold mono hover:border-accent hover:text-accent transition">
+                    [社区求助]
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-accent rounded flex items-center justify-center text-xl">💪</div>
+                        <div>
+                            <span class="text-lg font-bold mono">HAVE YOU QUIT?</span>
+                            <p class="text-xs text-gray-500 mono">戒了吗</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm mono">每一次坚持，都是对更好自己的投资。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 mono text-sm">[导航]</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm mono">
+                        <li><a href="/#features" class="hover:text-accent transition">[功能]</a></li>
+                        <li><a href="/#pricing" class="hover:text-accent transition">[订阅]</a></li>
+                        <li><a href="/community.html" class="hover:text-accent transition">[社区]</a></li>
+                        <li><a href="/#download" class="hover:text-accent transition">[下载]</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 mono text-sm">[支持]</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm mono">
+                        <li><a href="/help.html" class="text-accent transition">[帮助中心]</a></li>
+                        <li><a href="mailto:support@haveyouquit.app" class="hover:text-accent transition">[联系我们]</a></li>
+                        <li><a href="#" class="hover:text-accent transition">[反馈建议]</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 mono text-sm">[法律]</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm mono">
+                        <li><a href="/privacy.html" class="hover:text-accent transition">[隐私政策]</a></li>
+                        <li><a href="/terms.html" class="hover:text-accent transition">[服务条款]</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-12 pt-8 text-center text-gray-500 text-xs mono">
+                <p>© 2026 HAVE YOU QUIT? // ALL RIGHTS RESERVED</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
