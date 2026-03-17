@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>戒了吗 - Have You Quit | 习惯打卡助手</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans SC', sans-serif; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl">💪</span>
+                    <span class="text-xl font-bold text-gray-800">戒了吗</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-gray-600 hover:text-purple-600">功能</a>
+                    <a href="#community" class="text-gray-600 hover:text-purple-600">社区</a>
+                    <a href="#about" class="text-gray-600 hover:text-purple-600">关于</a>
+                    <a href="#download" class="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700">下载</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white pt-32 pb-20">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                戒了吗？
+            </h1>
+            <p class="text-xl md:text-2xl mb-4 opacity-90">
+                Have You Quit?
+            </p>
+            <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto opacity-80">
+                每天打卡，坚持好习惯，告别坏毛病。和百万用户一起，成为更好的自己。
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#download" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition">
+                    📱 免费下载
+                </a>
+                <a href="#features" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-purple-600 transition">
+                    ✨ 了解功能
+                </a>
+            </div>
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto">
+                <div>
+                    <div class="text-4xl font-bold">100K+</div>
+                    <div class="text-sm opacity-70 mt-1">活跃用户</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold">500K+</div>
+                    <div class="text-sm opacity-70 mt-1">累计打卡</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold">85%</div>
+                    <div class="text-sm opacity-70 mt-1">坚持成功率</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">核心功能</h2>
+                <p class="text-gray-600 text-lg">一切为了帮助你坚持下去</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover transition duration-300">
+                    <div class="text-5xl mb-4">📅</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">每日打卡</h3>
+                    <p class="text-gray-600">简单直观的打卡界面，记录每一次坚持。连续打卡天数可视化，成就感满满。</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover transition duration-300">
+                    <div class="text-5xl mb-4">⏰</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">智能提醒</h3>
+                    <p class="text-gray-600">自定义提醒时间，不再忘记打卡。温柔提醒，不会打扰你的生活节奏。</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover transition duration-300">
+                    <div class="text-5xl mb-4">👥</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">互助社区</h3>
+                    <p class="text-gray-600">和志同道合的人一起坚持。分享心得，互相鼓励，不再孤军奋战。</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover transition duration-300">
+                    <div class="text-5xl mb-4">📊</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">数据统计</h3>
+                    <p class="text-gray-600">清晰的数据图表，见证你的进步。每一次坚持都有迹可循。</p>
+                </div>
+                <!-- Feature 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover transition duration-300">
+                    <div class="text-5xl mb-4">🏆</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">成就系统</h3>
+                    <p class="text-gray-600">解锁各种成就徽章，让坚持变得有趣。收集控的最爱。</p>
+                </div>
+                <!-- Feature 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg card-hover transition duration-300">
+                    <div class="text-5xl mb-4">🔒</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">隐私保护</h3>
+                    <p class="text-gray-600">你的数据只属于你。可选择匿名分享，安全放心。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habit Types -->
+    <section class="py-20 bg-purple-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">适合各种习惯</h2>
+                <p class="text-gray-600 text-lg">无论你想培养什么习惯，这里都有你的位置</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-6 bg-white rounded-xl">
+                    <span class="text-4xl">🚭</span>
+                    <p class="mt-3 font-medium">戒烟</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl">
+                    <span class="text-4xl">🍷</span>
+                    <p class="mt-3 font-medium">戒酒</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl">
+                    <span class="text-4xl">🍬</span>
+                    <p class="mt-3 font-medium">戒糖</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl">
+                    <span class="text-4xl">😴</span>
+                    <p class="mt-3 font-medium">早睡</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl">
+                    <span class="text-4xl">📱</span>
+                    <p class="mt-3 font-medium">戒手机</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl">
+                    <span class="text-4xl">🏃</span>
+                    <p class="mt-3 font-medium">运动</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl">
+                    <span class="text-4xl">📚</span>
+                    <p class="mt-3 font-medium">阅读</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl">
+                    <span class="text-4xl">💧</span>
+                    <p class="mt-3 font-medium">多喝水</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="py-20">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">互助社区</h2>
+                <p class="text-gray-600 text-lg">一个人走得快，一群人走得远</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-8 rounded-2xl">
+                    <div class="text-6xl mb-4">💬</div>
+                    <h3 class="text-2xl font-bold mb-4">分享心得</h3>
+                    <p class="opacity-90 mb-6">记录你的戒烟/戒酒/坚持历程，分享成功经验和失败教训。你的故事可能帮助到另一个人。</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">✓ 匿名分享，保护隐私</li>
+                        <li class="flex items-center">✓ 点赞评论，互相鼓励</li>
+                        <li class="flex items-center">✓ 找到同路人，不再孤单</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 p-8 rounded-2xl">
+                    <div class="space-y-4">
+                        <!-- Testimonial 1 -->
+                        <div class="bg-white p-4 rounded-xl shadow">
+                            <div class="flex items-center mb-2">
+                                <span class="text-2xl mr-2">🎉</span>
+                                <span class="font-medium">用户 A</span>
+                                <span class="text-gray-500 text-sm ml-auto">戒烟 180 天</span>
+                            </div>
+                            <p class="text-gray-600">"这个 App 真的帮了我大忙！社区的兄弟姐妹们每天互相打气，让我熬过了最难的第一个月。"</p>
+                        </div>
+                        <!-- Testimonial 2 -->
+                        <div class="bg-white p-4 rounded-xl shadow">
+                            <div class="flex items-center mb-2">
+                                <span class="text-2xl mr-2">🌟</span>
+                                <span class="font-medium">用户 B</span>
+                                <span class="text-gray-500 text-sm ml-auto">早睡 90 天</span>
+                            </div>
+                            <p class="text-gray-600">"打卡提醒很温柔但很有效，现在每天到点就自动想睡觉了，生物钟完全调整过来了！"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-gray-800 mb-6">关于我们</h2>
+            <p class="text-gray-600 text-lg mb-8">
+                "戒了吗"是由独立开发者创建的习惯养成应用。我们相信，每个人都有能力改变自己，
+                只是需要一点帮助和陪伴。
+            </p>
+            <p class="text-gray-600 text-lg mb-8">
+                无论你正在与什么习惯作斗争，请记住：你并不孤单。每一次尝试都值得尊重，
+                每一次坚持都值得庆祝。
+            </p>
+            <div class="flex justify-center space-x-4 text-3xl">
+                <span>🎯</span>
+                <span>💪</span>
+                <span>✨</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="py-20 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">开始你的改变之旅</h2>
+            <p class="text-xl mb-12 opacity-90">免费下载，立即开始</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <button class="bg-black text-white px-8 py-4 rounded-xl flex items-center justify-center space-x-3 hover:bg-gray-900 transition">
+                    <span class="text-3xl">🍎</span>
+                    <div class="text-left">
+                        <div class="text-xs opacity-70">Download on the</div>
+                        <div class="text-lg font-semibold">App Store</div>
+                    </div>
+                </button>
+                <button class="bg-black text-white px-8 py-4 rounded-xl flex items-center justify-center space-x-3 hover:bg-gray-900 transition">
+                    <span class="text-3xl">🤖</span>
+                    <div class="text-left">
+                        <div class="text-xs opacity-70">Get it on</div>
+                        <div class="text-lg font-semibold">Google Play</div>
+                    </div>
+                </button>
+            </div>
+            <p class="mt-8 text-sm opacity-70">支持 iOS 和 Android 平台</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-2xl">💪</span>
+                        <span class="text-xl font-bold">戒了吗</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Have You Quit?</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">产品</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#features" class="hover:text-white">功能</a></li>
+                        <li><a href="#community" class="hover:text-white">社区</a></li>
+                        <li><a href="#download" class="hover:text-white">下载</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">支持</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white">帮助中心</a></li>
+                        <li><a href="#" class="hover:text-white">联系我们</a></li>
+                        <li><a href="#" class="hover:text-white">反馈建议</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">法律</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="/privacy" class="hover:text-white">隐私政策</a></li>
+                        <li><a href="/terms" class="hover:text-white">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2026 戒了吗 Have You Quit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
