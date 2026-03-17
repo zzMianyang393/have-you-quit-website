@@ -96,6 +96,24 @@
             50% { opacity: 0.6; transform: scale(1.2); }
         }
         
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff4757;
+        }
+        
         input, textarea, select {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -141,9 +159,9 @@
             <div class="text-center mb-16">
                 <span class="mono text-accent text-sm">[FEEDBACK]</span>
                 <h1 class="text-6xl md:text-7xl font-black mt-4 mb-6">
-                    反馈_<span class="text-gradient-accent">建议</span>
+                    <span data-i18n="feedback_title">反馈_<span class="text-gradient-accent">建议</span></span>
                 </h1>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto" data-i18n="feedback_desc">
                     你的每一条建议，都让我们变得更好
                 </p>
             </div>
@@ -156,64 +174,64 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
                 <div class="card rounded-2xl p-6">
                     <div class="w-12 h-12 bg-accent rounded flex items-center justify-center text-xl mb-4">✨</div>
-                    <h3 class="text-lg font-bold mb-2 mono">功能建议</h3>
-                    <p class="text-gray-400 text-sm">希望添加新功能？告诉我们你的想法</p>
+                    <h3 class="text-lg font-bold mb-2 mono" data-i18n="feature_title">功能建议</h3>
+                    <p class="text-gray-400 text-sm" data-i18n="feature_desc">希望添加新功能？告诉我们你的想法</p>
                 </div>
                 <div class="card rounded-2xl p-6">
                     <div class="w-12 h-12 bg-accent rounded flex items-center justify-center text-xl mb-4">🐛</div>
-                    <h3 class="text-lg font-bold mb-2 mono">问题报告</h3>
-                    <p class="text-gray-400 text-sm">遇到 Bug 或错误？帮助我们修复</p>
+                    <h3 class="text-lg font-bold mb-2 mono" data-i18n="bug_title">问题报告</h3>
+                    <p class="text-gray-400 text-sm" data-i18n="bug_desc">遇到 Bug 或错误？帮助我们修复</p>
                 </div>
                 <div class="card rounded-2xl p-6">
                     <div class="w-12 h-12 bg-accent rounded flex items-center justify-center text-xl mb-4">🎨</div>
-                    <h3 class="text-lg font-bold mb-2 mono">设计优化</h3>
-                    <p class="text-gray-400 text-sm">界面或体验需要改进？提出建议</p>
+                    <h3 class="text-lg font-bold mb-2 mono" data-i18n="design_title">设计优化</h3>
+                    <p class="text-gray-400 text-sm" data-i18n="design_desc">界面或体验需要改进？提出建议</p>
                 </div>
                 <div class="card rounded-2xl p-6">
                     <div class="w-12 h-12 bg-accent rounded flex items-center justify-center text-xl mb-4">💡</div>
-                    <h3 class="text-lg font-bold mb-2 mono">其他想法</h3>
-                    <p class="text-gray-400 text-sm">任何其他想法都欢迎分享</p>
+                    <h3 class="text-lg font-bold mb-2 mono" data-i18n="other_title">其他想法</h3>
+                    <p class="text-gray-400 text-sm" data-i18n="other_desc">任何其他想法都欢迎分享</p>
                 </div>
             </div>
             
             <!-- Feedback Form -->
             <div class="max-w-3xl mx-auto">
                 <div class="card rounded-2xl p-10">
-                    <h2 class="text-3xl font-black mb-2 mono">[提交建议]</h2>
-                    <p class="text-gray-400 mb-8">告诉我们你的想法，每一条建议我们都会认真阅读</p>
+                    <h2 class="text-3xl font-black mb-2 mono" data-i18n="form_title">[提交建议]</h2>
+                    <p class="text-gray-400 mb-8" data-i18n="form_desc">告诉我们你的想法，每一条建议我们都会认真阅读</p>
                     
                     <form action="https://formspree.io/f/mlgpobaj" method="POST" class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-sm font-bold mb-2 mono">[姓名/昵称]</label>
-                                <input type="text" name="name" placeholder="如何称呼你" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500" required>
+                                <label class="block text-sm font-bold mb-2 mono" data-i18n="label_name">[姓名/昵称]</label>
+                                <input type="text" name="name" data-i18n="placeholder_name" placeholder="如何称呼你" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500" required>
                             </div>
                             <div>
-                                <label class="block text-sm font-bold mb-2 mono">[邮箱]</label>
-                                <input type="email" name="email" placeholder="用于回复你的建议" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500" required>
+                                <label class="block text-sm font-bold mb-2 mono" data-i18n="label_email">[邮箱]</label>
+                                <input type="email" name="email" data-i18n="placeholder_email" placeholder="用于回复你的建议" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500" required>
                             </div>
                         </div>
                         
                         <div>
-                            <label class="block text-sm font-bold mb-2 mono">[建议类型]</label>
+                            <label class="block text-sm font-bold mb-2 mono" data-i18n="label_type">[建议类型]</label>
                             <select name="type" class="w-full px-4 py-3 rounded-lg text-white bg-dark border border-white/10" required>
-                                <option value="" class="bg-dark">请选择类型</option>
-                                <option value="feature" class="bg-dark">功能建议</option>
-                                <option value="bug" class="bg-dark">问题报告</option>
-                                <option value="design" class="bg-dark">设计优化</option>
-                                <option value="content" class="bg-dark">内容建议</option>
-                                <option value="other" class="bg-dark">其他</option>
+                                <option value="" class="bg-dark" data-i18n="select_type">请选择类型</option>
+                                <option value="feature" class="bg-dark" data-i18n="option_feature">功能建议</option>
+                                <option value="bug" class="bg-dark" data-i18n="option_bug">问题报告</option>
+                                <option value="design" class="bg-dark" data-i18n="option_design">设计优化</option>
+                                <option value="content" class="bg-dark" data-i18n="option_content">内容建议</option>
+                                <option value="other" class="bg-dark" data-i18n="option_other">其他</option>
                             </select>
                         </div>
                         
                         <div>
-                            <label class="block text-sm font-bold mb-2 mono">[建议标题]</label>
-                            <input type="text" name="title" placeholder="用一句话概括你的建议" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500" required>
+                            <label class="block text-sm font-bold mb-2 mono" data-i18n="label_title">[建议标题]</label>
+                            <input type="text" name="title" data-i18n="placeholder_title" placeholder="用一句话概括你的建议" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500" required>
                         </div>
                         
                         <div>
-                            <label class="block text-sm font-bold mb-2 mono">[详细描述]</label>
-                            <textarea name="description" rows="8" placeholder="请详细描述你的建议&#10;&#10;如果是功能建议：&#10;- 这个功能解决什么问题？&#10;- 你希望如何使用它？&#10;- 有什么参考案例吗？&#10;&#10;如果是问题报告：&#10;- 问题出现在什么情况下？&#10;- 如何复现这个问题？&#10;- 你使用的设备和系统版本" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 resize-none" required></textarea>
+                            <label class="block text-sm font-bold mb-2 mono" data-i18n="label_desc">[详细描述]</label>
+                            <textarea name="description" rows="8" data-i18n="placeholder_desc" placeholder="请详细描述你的建议" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 resize-none" required></textarea>
                         </div>
                         
                         <div class="flex items-center space-x-2">
@@ -221,7 +239,7 @@
                             <label for="contact-me" class="text-sm text-gray-400">如果需要进一步沟通，请通过邮箱联系我</label>
                         </div>
                         
-                        <button type="submit" class="w-full bg-accent text-white py-4 rounded-lg font-bold mono hover:bg-red-600 transition">
+                        <button type="submit" class="w-full bg-accent text-white py-4 rounded-lg font-bold mono hover:bg-red-600 transition" data-i18n="btn_submit">
                             [提交建议]
                         </button>
                     </form>
@@ -273,5 +291,106 @@
             </div>
         </div>
     </footer>
+    <!-- Language Switch Script -->
+    <script>
+        const translations = {
+            zh: {
+                feedback_title: '反馈_建议',
+                feedback_desc: '你的每一条建议，都让我们变得更好',
+                feature_title: '功能建议',
+                feature_desc: '希望添加新功能？告诉我们你的想法',
+                bug_title: '问题报告',
+                bug_desc: '遇到 Bug 或错误？帮助我们修复',
+                design_title: '设计优化',
+                design_desc: '界面或体验需要改进？提出建议',
+                other_title: '其他想法',
+                other_desc: '任何其他想法都欢迎分享',
+                form_title: '[提交建议]',
+                form_desc: '告诉我们你的想法，每一条建议我们都会认真阅读',
+                label_name: '[姓名/昵称]',
+                label_email: '[邮箱]',
+                label_type: '[建议类型]',
+                label_title: '[建议标题]',
+                label_desc: '[详细描述]',
+                placeholder_name: '如何称呼你',
+                placeholder_email: '用于回复你的建议',
+                placeholder_title: '用一句话概括你的建议',
+                select_type: '请选择类型',
+                option_feature: '功能建议',
+                option_bug: '问题报告',
+                option_design: '设计优化',
+                option_content: '内容建议',
+                option_other: '其他',
+                btn_submit: '[提交建议]',
+            },
+            en: {
+                feedback_title: 'Feedback',
+                feedback_desc: 'Every suggestion makes us better',
+                feature_title: 'Feature Request',
+                feature_desc: 'Want a new feature? Tell us your idea',
+                bug_title: 'Bug Report',
+                bug_desc: 'Found a bug? Help us fix it',
+                design_title: 'Design Improvement',
+                design_desc: 'UI/UX needs improvement? Share your thoughts',
+                other_title: 'Other Ideas',
+                other_desc: 'Any other ideas are welcome',
+                form_title: '[Submit Feedback]',
+                form_desc: 'Tell us your thoughts, we read every suggestion',
+                label_name: '[Name]',
+                label_email: '[Email]',
+                label_type: '[Type]',
+                label_title: '[Title]',
+                label_desc: '[Description]',
+                placeholder_name: 'How should we call you',
+                placeholder_email: 'Email for reply',
+                placeholder_title: 'Summarize your suggestion in one sentence',
+                select_type: 'Select a type',
+                option_feature: 'Feature Request',
+                option_bug: 'Bug Report',
+                option_design: 'Design Improvement',
+                option_content: 'Content Suggestion',
+                option_other: 'Other',
+                btn_submit: '[Submit Feedback]',
+            }
+        };
+        
+        let currentLang = 'zh';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            document.getElementById('lang-toggle').textContent = currentLang === 'zh' ? 'EN' : '中文';
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
+            
+            const url = new URL(window.location);
+            url.searchParams.set('lang', currentLang);
+            window.history.pushState({}, '', url);
+            
+            applyTranslations();
+        }
+        
+        function applyTranslations() {
+            const t = translations[currentLang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = t[key];
+                    } else if (el.tagName === 'OPTION') {
+                        el.textContent = t[key];
+                    } else {
+                        el.textContent = t[key];
+                    }
+                }
+            });
+        }
+        
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang');
+            if (lang === 'en') {
+                toggleLanguage();
+            }
+        });
+    </script>
 </body>
 </html>
