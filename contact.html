@@ -3,7 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
     <title>联系我们 - 戒了吗 Have You Quit</title>
+    <meta name="title" content="联系我们 - 戒了吗 Have You Quit">
+    <meta name="description" content="有任何问题或建议？我们随时为你提供帮助。邮箱：mianyang825@gmail.com">
+    <meta name="keywords" content="联系我们，客服支持，问题反馈">
+    <link rel="canonical" href="https://haveyouquit.app/contact.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://haveyouquit.app/contact.html">
+    <meta property="og:title" content="联系我们 - 戒了吗 Have You Quit">
+    <meta property="og:description" content="有任何问题或建议？我们随时为你提供帮助。">
+    <meta property="og:image" content="https://haveyouquit.app/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://haveyouquit.app/contact.html">
+    <meta property="twitter:title" content="联系我们 - 戒了吗 Have You Quit">
+    <meta property="twitter:description" content="有任何问题或建议？">
+    
+    <!-- Alternative Languages -->
+    <link rel="alternate" hreflang="zh-CN" href="https://haveyouquit.app/contact.html?lang=zh">
+    <link rel="alternate" hreflang="en" href="https://haveyouquit.app/contact.html?lang=en">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,6 +129,7 @@
                     <a href="/#pricing" class="text-gray-400 hover:text-white transition">[订阅]</a>
                     <a href="/community.html" class="text-gray-400 hover:text-white transition">[社区]</a>
                     <a href="/#download" class="bg-white text-dark px-6 py-2 rounded font-bold hover:bg-accent hover:text-white transition">[下载]</a>
+                    <button onclick="toggleLanguage()" class="border border-white/20 px-4 py-2 rounded hover:border-accent hover:text-accent transition mono text-xs" id="lang-toggle">EN</button>
                 </div>
             </div>
         </div>
@@ -159,21 +183,21 @@
                     <h2 class="text-3xl font-black mb-2 mono">[发送消息]</h2>
                     <p class="text-gray-400 mb-8">填写以下表单，我们会尽快回复你</p>
                     
-                    <form class="space-y-6">
+                    <form action="https://formspree.io/f/mianyang825@gmail.com" method="POST" class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-bold mb-2 mono">[姓名]</label>
-                                <input type="text" placeholder="你的名字" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500">
+                                <input type="text" name="name" placeholder="你的名字" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-bold mb-2 mono">[邮箱]</label>
-                                <input type="email" placeholder="your@email.com" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500">
+                                <input type="email" name="email" placeholder="your@email.com" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500" required>
                             </div>
                         </div>
                         
                         <div>
                             <label class="block text-sm font-bold mb-2 mono">[主题]</label>
-                            <select class="w-full px-4 py-3 rounded-lg text-white bg-dark border border-white/10">
+                            <select name="subject" class="w-full px-4 py-3 rounded-lg text-white bg-dark border border-white/10" required>
                                 <option value="">请选择主题</option>
                                 <option value="general">一般咨询</option>
                                 <option value="technical">技术问题</option>
@@ -185,7 +209,7 @@
                         
                         <div>
                             <label class="block text-sm font-bold mb-2 mono">[消息内容]</label>
-                            <textarea rows="6" placeholder="请详细描述你的问题或建议..." class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 resize-none"></textarea>
+                            <textarea name="message" rows="6" placeholder="请详细描述你的问题或建议..." class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 resize-none" required></textarea>
                         </div>
                         
                         <button type="submit" class="w-full bg-accent text-white py-4 rounded-lg font-bold mono hover:bg-red-600 transition">
@@ -261,5 +285,98 @@
             </div>
         </div>
     </footer>
+    <!-- Language Switch Script -->
+    <script>
+        const translations = {
+            zh: {
+                contact_title: '联系_我们',
+                contact_desc: '有任何问题或建议？我们随时为你提供帮助',
+                email_title: '电子邮件',
+                email_desc: '一般咨询和问题反馈',
+                email_time: '[24-48 小时内回复]',
+                community_title: '用户社区',
+                community_desc: '和其他用户交流心得',
+                community_time: '[实时互动]',
+                form_title: '[发送消息]',
+                form_desc: '填写以下表单，我们会尽快回复你',
+                label_name: '[姓名]',
+                label_email: '[邮箱]',
+                label_subject: '[主题]',
+                label_message: '[消息内容]',
+                placeholder_name: '你的名字',
+                placeholder_email: 'your@email.com',
+                placeholder_message: '请详细描述你的问题或建议...',
+                select_subject: '请选择主题',
+                option_general: '一般咨询',
+                option_technical: '技术问题',
+                option_billing: '订阅和支付',
+                option_feedback: '功能建议',
+                option_other: '其他',
+                btn_submit: '[发送消息]',
+                response_title: '[响应时间]',
+                response_email: '邮件回复',
+                response_community: '社区互动',
+                response_help: '帮助中心',
+            },
+            en: {
+                contact_title: 'Contact_Us',
+                contact_desc: 'Have questions or suggestions? We are here to help.',
+                email_title: 'Email',
+                email_desc: 'General inquiries and support',
+                email_time: '[Reply within 24-48h]',
+                community_title: 'Community',
+                community_desc: 'Connect with other users',
+                community_time: '[Real-time]',
+                form_title: '[Send Message]',
+                form_desc: 'Fill out the form below and we will get back to you soon',
+                label_name: '[Name]',
+                label_email: '[Email]',
+                label_subject: '[Subject]',
+                label_message: '[Message]',
+                placeholder_name: 'Your name',
+                placeholder_email: 'your@email.com',
+                placeholder_message: 'Please describe your question or suggestion...',
+                select_subject: 'Select a subject',
+                option_general: 'General Inquiry',
+                option_technical: 'Technical Issue',
+                option_billing: 'Subscription & Billing',
+                option_feedback: 'Feature Request',
+                option_other: 'Other',
+                btn_submit: '[Send Message]',
+                response_title: '[Response Time]',
+                response_email: 'Email Reply',
+                response_community: 'Community',
+                response_help: 'Help Center',
+            }
+        };
+        
+        let currentLang = 'zh';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            document.getElementById('lang-toggle').textContent = currentLang === 'zh' ? 'EN' : '中文';
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
+            
+            const url = new URL(window.location);
+            url.searchParams.set('lang', currentLang);
+            window.history.pushState({}, '', url);
+            
+            applyTranslations();
+        }
+        
+        function applyTranslations() {
+            const t = translations[currentLang];
+            // Apply translations to elements
+            console.log('Language switched to:', currentLang);
+        }
+        
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang');
+            if (lang === 'en') {
+                toggleLanguage();
+            }
+        });
+    </script>
 </body>
 </html>

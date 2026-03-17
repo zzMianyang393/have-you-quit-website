@@ -3,7 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
     <title>反馈建议 - 戒了吗 Have You Quit</title>
+    <meta name="title" content="反馈建议 - 戒了吗 Have You Quit">
+    <meta name="description" content="你的每一条建议，都让我们变得更好。提交功能建议、问题报告或设计优化。">
+    <meta name="keywords" content="反馈建议，功能建议，问题报告">
+    <link rel="canonical" href="https://haveyouquit.app/feedback.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://haveyouquit.app/feedback.html">
+    <meta property="og:title" content="反馈建议 - 戒了吗 Have You Quit">
+    <meta property="og:description" content="你的每一条建议，都让我们变得更好。">
+    <meta property="og:image" content="https://haveyouquit.app/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://haveyouquit.app/feedback.html">
+    <meta property="twitter:title" content="反馈建议 - 戒了吗 Have You Quit">
+    <meta property="twitter:description" content="你的每一条建议，都让我们变得更好。">
+    
+    <!-- Alternative Languages -->
+    <link rel="alternate" hreflang="zh-CN" href="https://haveyouquit.app/feedback.html?lang=zh">
+    <link rel="alternate" hreflang="en" href="https://haveyouquit.app/feedback.html?lang=en">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,6 +129,7 @@
                     <a href="/#pricing" class="text-gray-400 hover:text-white transition">[订阅]</a>
                     <a href="/community.html" class="text-gray-400 hover:text-white transition">[社区]</a>
                     <a href="/#download" class="bg-white text-dark px-6 py-2 rounded font-bold hover:bg-accent hover:text-white transition">[下载]</a>
+                    <button onclick="toggleLanguage()" class="border border-white/20 px-4 py-2 rounded hover:border-accent hover:text-accent transition mono text-xs" id="lang-toggle">EN</button>
                 </div>
             </div>
         </div>
@@ -158,21 +182,21 @@
                     <h2 class="text-3xl font-black mb-2 mono">[提交建议]</h2>
                     <p class="text-gray-400 mb-8">告诉我们你的想法，每一条建议我们都会认真阅读</p>
                     
-                    <form class="space-y-6">
+                    <form action="https://formspree.io/f/mianyang825@gmail.com" method="POST" class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-sm font-bold mb-2 mono">[姓名/昵称]</label>
-                                <input type="text" placeholder="如何称呼你" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500">
+                                <input type="text" name="name" placeholder="如何称呼你" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500" required>
                             </div>
                             <div>
                                 <label class="block text-sm font-bold mb-2 mono">[邮箱]</label>
-                                <input type="email" placeholder="用于回复你的建议" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500">
+                                <input type="email" name="email" placeholder="用于回复你的建议" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500" required>
                             </div>
                         </div>
                         
                         <div>
                             <label class="block text-sm font-bold mb-2 mono">[建议类型]</label>
-                            <select class="w-full px-4 py-3 rounded-lg text-white bg-dark border border-white/10">
+                            <select name="type" class="w-full px-4 py-3 rounded-lg text-white bg-dark border border-white/10" required>
                                 <option value="" class="bg-dark">请选择类型</option>
                                 <option value="feature" class="bg-dark">功能建议</option>
                                 <option value="bug" class="bg-dark">问题报告</option>
@@ -184,16 +208,16 @@
                         
                         <div>
                             <label class="block text-sm font-bold mb-2 mono">[建议标题]</label>
-                            <input type="text" placeholder="用一句话概括你的建议" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500">
+                            <input type="text" name="title" placeholder="用一句话概括你的建议" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500" required>
                         </div>
                         
                         <div>
                             <label class="block text-sm font-bold mb-2 mono">[详细描述]</label>
-                            <textarea rows="8" placeholder="请详细描述你的建议&#10;&#10;如果是功能建议：&#10;- 这个功能解决什么问题？&#10;- 你希望如何使用它？&#10;- 有什么参考案例吗？&#10;&#10;如果是问题报告：&#10;- 问题出现在什么情况下？&#10;- 如何复现这个问题？&#10;- 你使用的设备和系统版本" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 resize-none"></textarea>
+                            <textarea name="description" rows="8" placeholder="请详细描述你的建议&#10;&#10;如果是功能建议：&#10;- 这个功能解决什么问题？&#10;- 你希望如何使用它？&#10;- 有什么参考案例吗？&#10;&#10;如果是问题报告：&#10;- 问题出现在什么情况下？&#10;- 如何复现这个问题？&#10;- 你使用的设备和系统版本" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 resize-none" required></textarea>
                         </div>
                         
                         <div class="flex items-center space-x-2">
-                            <input type="checkbox" id="contact-me" class="w-4 h-4">
+                            <input type="checkbox" name="contact_me" id="contact-me" class="w-4 h-4">
                             <label for="contact-me" class="text-sm text-gray-400">如果需要进一步沟通，请通过邮箱联系我</label>
                         </div>
                         
