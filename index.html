@@ -14,13 +14,12 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#6366f1',
-                        secondary: '#8b5cf6',
-                        accent: '#ec4899',
+                        primary: '#4f46e5',
+                        secondary: '#06b6d4',
+                        dark: '#0f172a',
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'fade-in': 'fadeIn 1s ease-out',
                         'slide-up': 'slideUp 0.8s ease-out',
                     }
@@ -44,44 +43,16 @@
             to { opacity: 1; }
         }
         
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            background-size: 200% 200%;
-            animation: gradient 15s ease infinite;
-        }
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
         }
         
         .card-hover {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .card-hover:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.25);
-        }
-        
-        .text-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.4;
-            animation: float 8s ease-in-out infinite;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
         
         .animate-delay-1 { animation-delay: 0.2s; }
@@ -89,15 +60,26 @@
         .animate-delay-3 { animation-delay: 0.6s; }
         
         html { scroll-behavior: smooth; }
+        
+        .pricing-card {
+            transition: all 0.3s ease;
+        }
+        .pricing-card:hover {
+            transform: scale(1.02);
+        }
+        .pricing-card.featured {
+            border: 2px solid #4f46e5;
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
+        }
     </style>
 </head>
 <body class="bg-gray-50 overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="bg-white/80 backdrop-blur-lg shadow-lg fixed w-full z-50 transition-all duration-300">
+    <nav class="bg-white shadow-md fixed w-full z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-3">
-                    <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-2xl shadow-lg">
+                    <div class="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center text-2xl shadow-lg">
                         💪
                     </div>
                     <div>
@@ -107,54 +89,49 @@
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#features" class="text-gray-600 hover:text-indigo-600 font-medium transition">功能</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-indigo-600 font-medium transition">订阅</a>
                     <a href="#community" class="text-gray-600 hover:text-indigo-600 font-medium transition">社区</a>
-                    <a href="#stories" class="text-gray-600 hover:text-indigo-600 font-medium transition">故事</a>
-                    <a href="#download" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300">立即下载</a>
+                    <a href="#download" class="bg-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-indigo-700 transition">立即下载</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="gradient-bg text-white pt-40 pb-32 relative overflow-hidden">
-        <!-- Decorative Blobs -->
-        <div class="blob bg-purple-300 w-96 h-96 top-20 left-20"></div>
-        <div class="blob bg-pink-300 w-80 h-80 bottom-20 right-20 animation-delay-2"></div>
-        <div class="blob bg-indigo-300 w-72 h-72 top-1/2 right-1/4 animation-delay-3"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section class="hero-bg text-white pt-40 pb-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="text-center lg:text-left">
-                    <div class="inline-block bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in">
+                    <div class="inline-block bg-indigo-600/30 px-6 py-2 rounded-full text-sm font-medium mb-6">
                         🎯 超过 100,000 用户正在坚持
                     </div>
-                    <h1 class="text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight animate-slide-up">
+                    <h1 class="text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
                         今天，<br/>
-                        <span class="text-yellow-300">戒了吗？</span>
+                        <span class="text-indigo-400">戒了吗？</span>
                     </h1>
-                    <p class="text-xl md:text-2xl mb-10 opacity-95 font-light leading-relaxed animate-slide-up animate-delay-1">
-                        每一次坚持，都是对更好自己的投资。<br/>
+                    <p class="text-xl md:text-2xl mb-10 text-gray-300 font-light leading-relaxed">
+                        科学的方法，温暖的陪伴。<br/>
                         和百万用户一起，告别坏习惯，养成好习惯。
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up animate-delay-2">
-                        <a href="#download" class="bg-white text-indigo-600 px-10 py-5 rounded-full font-bold text-lg hover:bg-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#download" class="bg-indigo-600 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-indigo-700 transition flex items-center justify-center space-x-2">
                             <i class="fas fa-download"></i>
                             <span>免费下载</span>
                         </a>
-                        <a href="#features" class="glass text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/30 transition-all duration-300 flex items-center justify-center space-x-2">
+                        <a href="#features" class="border-2 border-white/30 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/10 transition flex items-center justify-center space-x-2">
                             <i class="fas fa-play-circle"></i>
                             <span>了解更多</span>
                         </a>
                     </div>
                     
                     <!-- Trust Badges -->
-                    <div class="mt-12 flex items-center justify-center lg:justify-start space-x-8 opacity-80">
+                    <div class="mt-12 flex items-center justify-center lg:justify-start space-x-8 text-gray-400">
                         <div class="flex items-center space-x-2">
                             <i class="fas fa-shield-alt text-2xl"></i>
                             <span class="text-sm">隐私保护</span>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <i class="fas fa-star text-2xl"></i>
+                            <i class="fas fa-star text-2xl text-yellow-400"></i>
                             <span class="text-sm">4.9 评分</span>
                         </div>
                         <div class="flex items-center space-x-2">
@@ -166,15 +143,15 @@
                 
                 <!-- Phone Mockup -->
                 <div class="relative animate-float hidden lg:block">
-                    <div class="relative z-10 bg-gray-900 rounded-[3rem] p-4 shadow-2xl max-w-sm mx-auto">
-                        <div class="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-[2.5rem] overflow-hidden">
+                    <div class="relative z-10 bg-gray-800 rounded-[3rem] p-4 shadow-2xl max-w-sm mx-auto border-4 border-gray-700">
+                        <div class="bg-gray-900 rounded-[2.5rem] overflow-hidden">
                             <div class="bg-white h-[600px] flex flex-col">
-                                <div class="bg-gradient-to-r from-indigo-600 to-purple-600 p-6 text-white">
+                                <div class="bg-indigo-600 p-6 text-white">
                                     <p class="text-sm opacity-80">3 月 17 日 星期二</p>
                                     <p class="text-3xl font-bold mt-1">今天，打卡了吗？</p>
                                 </div>
                                 <div class="flex-1 p-6 space-y-4">
-                                    <div class="bg-gradient-to-r from-green-400 to-emerald-500 p-4 rounded-2xl text-white">
+                                    <div class="bg-green-500 p-4 rounded-2xl text-white">
                                         <div class="flex justify-between items-center">
                                             <div>
                                                 <p class="font-bold">🚭 戒烟</p>
@@ -183,7 +160,7 @@
                                             <i class="fas fa-check-circle text-3xl"></i>
                                         </div>
                                     </div>
-                                    <div class="bg-gradient-to-r from-blue-400 to-indigo-500 p-4 rounded-2xl text-white">
+                                    <div class="bg-blue-500 p-4 rounded-2xl text-white">
                                         <div class="flex justify-between items-center">
                                             <div>
                                                 <p class="font-bold">😴 早睡</p>
@@ -192,7 +169,7 @@
                                             <i class="fas fa-clock text-3xl"></i>
                                         </div>
                                     </div>
-                                    <div class="bg-gradient-to-r from-orange-400 to-pink-500 p-4 rounded-2xl text-white">
+                                    <div class="bg-orange-500 p-4 rounded-2xl text-white">
                                         <div class="flex justify-between items-center">
                                             <div>
                                                 <p class="font-bold">🍬 戒糖</p>
@@ -205,49 +182,46 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Background decoration -->
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full opacity-20 blur-3xl -z-10"></div>
                 </div>
             </div>
             
             <!-- Stats -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24">
-                <div class="text-center glass rounded-3xl p-8 animate-slide-up">
+                <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-8">
                     <div class="text-5xl md:text-6xl font-black mb-2">100K+</div>
-                    <div class="text-sm opacity-80 font-medium">活跃用户</div>
+                    <div class="text-sm text-gray-300 font-medium">活跃用户</div>
                 </div>
-                <div class="text-center glass rounded-3xl p-8 animate-slide-up animate-delay-1">
+                <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-8">
                     <div class="text-5xl md:text-6xl font-black mb-2">500K+</div>
-                    <div class="text-sm opacity-80 font-medium">累计打卡</div>
+                    <div class="text-sm text-gray-300 font-medium">累计打卡</div>
                 </div>
-                <div class="text-center glass rounded-3xl p-8 animate-slide-up animate-delay-2">
+                <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-8">
                     <div class="text-5xl md:text-6xl font-black mb-2">85%</div>
-                    <div class="text-sm opacity-80 font-medium">坚持成功率</div>
+                    <div class="text-sm text-gray-300 font-medium">坚持成功率</div>
                 </div>
-                <div class="text-center glass rounded-3xl p-8 animate-slide-up animate-delay-3">
+                <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-8">
                     <div class="text-5xl md:text-6xl font-black mb-2">4.9★</div>
-                    <div class="text-sm opacity-80 font-medium">用户评分</div>
+                    <div class="text-sm text-gray-300 font-medium">用户评分</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="py-32 bg-white relative">
+    <section id="features" class="py-32 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20">
-                <span class="bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-600 px-6 py-2 rounded-full text-sm font-semibold mb-4 inline-block">核心功能</span>
+                <span class="bg-indigo-100 text-indigo-600 px-6 py-2 rounded-full text-sm font-semibold mb-4 inline-block">核心功能</span>
                 <h2 class="text-5xl md:text-6xl font-black text-gray-800 mb-6">
-                    为<span class="text-gradient">坚持</span>而生
+                    为坚持而生
                 </h2>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">科学的方法，温暖的设计，让改变自然而然发生</p>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
-                <div class="group bg-gradient-to-br from-indigo-50 to-purple-50 rounded-3xl p-10 card-hover relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-indigo-400 to-purple-400 rounded-bl-full opacity-20 group-hover:opacity-30 transition"></div>
-                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg">
+                <div class="bg-gray-50 rounded-2xl p-10 card-hover">
+                    <div class="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg">
                         📅
                     </div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-4">每日打卡</h3>
@@ -255,9 +229,8 @@
                 </div>
                 
                 <!-- Feature 2 -->
-                <div class="group bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl p-10 card-hover relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-400 to-rose-400 rounded-bl-full opacity-20 group-hover:opacity-30 transition"></div>
-                    <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg">
+                <div class="bg-gray-50 rounded-2xl p-10 card-hover">
+                    <div class="w-16 h-16 bg-cyan-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg">
                         ⏰
                     </div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-4">智能提醒</h3>
@@ -265,9 +238,8 @@
                 </div>
                 
                 <!-- Feature 3 -->
-                <div class="group bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-10 card-hover relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-400 to-orange-400 rounded-bl-full opacity-20 group-hover:opacity-30 transition"></div>
-                    <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg">
+                <div class="bg-gray-50 rounded-2xl p-10 card-hover">
+                    <div class="w-16 h-16 bg-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg">
                         👥
                     </div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-4">互助社区</h3>
@@ -275,9 +247,8 @@
                 </div>
                 
                 <!-- Feature 4 -->
-                <div class="group bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-10 card-hover relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-400 to-teal-400 rounded-bl-full opacity-20 group-hover:opacity-30 transition"></div>
-                    <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg">
+                <div class="bg-gray-50 rounded-2xl p-10 card-hover">
+                    <div class="w-16 h-16 bg-emerald-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg">
                         📊
                     </div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-4">数据统计</h3>
@@ -285,9 +256,8 @@
                 </div>
                 
                 <!-- Feature 5 -->
-                <div class="group bg-gradient-to-br from-violet-50 to-purple-50 rounded-3xl p-10 card-hover relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-violet-400 to-purple-400 rounded-bl-full opacity-20 group-hover:opacity-30 transition"></div>
-                    <div class="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg">
+                <div class="bg-gray-50 rounded-2xl p-10 card-hover">
+                    <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg">
                         🏆
                     </div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-4">成就系统</h3>
@@ -295,9 +265,8 @@
                 </div>
                 
                 <!-- Feature 6 -->
-                <div class="group bg-gradient-to-br from-cyan-50 to-blue-50 rounded-3xl p-10 card-hover relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-400 to-blue-400 rounded-bl-full opacity-20 group-hover:opacity-30 transition"></div>
-                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg">
+                <div class="bg-gray-50 rounded-2xl p-10 card-hover">
+                    <div class="w-16 h-16 bg-pink-600 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg">
                         🔒
                     </div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-4">隐私保护</h3>
@@ -307,53 +276,209 @@
         </div>
     </section>
 
-    <!-- Habit Types -->
-    <section class="py-32 bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 left-0 w-96 h-96 bg-indigo-500 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20">
-                <span class="bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full text-sm font-semibold mb-4 inline-block">适合各种习惯</span>
-                <h2 class="text-5xl md:text-6xl font-black mb-6">
-                    无论你想<span class="text-yellow-400">改变</span>什么
+                <span class="bg-indigo-100 text-indigo-600 px-6 py-2 rounded-full text-sm font-semibold mb-4 inline-block">订阅方案</span>
+                <h2 class="text-5xl md:text-6xl font-black text-gray-800 mb-6">
+                    选择适合你的方案
                 </h2>
-                <p class="text-xl opacity-80 max-w-2xl mx-auto">从戒烟戒酒到早睡运动，从戒糖到阅读，每一种坚持都值得尊重</p>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">基础功能永久免费，高级功能解锁完整体验</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Free Plan -->
+                <div class="pricing-card bg-white rounded-3xl p-10 shadow-lg">
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">免费版</h3>
+                        <p class="text-gray-600">适合初学者</p>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-5xl font-black text-gray-800">¥0</span>
+                        <span class="text-gray-600"> / 永久</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">3 个习惯追踪</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">基础打卡功能</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">每日提醒</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">基础数据统计</span>
+                        </li>
+                        <li class="flex items-center space-x-3 text-gray-400">
+                            <i class="fas fa-times"></i>
+                            <span>无限习惯数量</span>
+                        </li>
+                        <li class="flex items-center space-x-3 text-gray-400">
+                            <i class="fas fa-times"></i>
+                            <span>高级数据分析</span>
+                        </li>
+                    </ul>
+                    <a href="#download" class="block w-full bg-gray-100 text-gray-800 text-center py-4 rounded-full font-bold hover:bg-gray-200 transition">
+                        免费下载
+                    </a>
+                </div>
+                
+                <!-- Pro Plan -->
+                <div class="pricing-card featured bg-white rounded-3xl p-10 shadow-xl relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-indigo-600 text-white px-6 py-2 rounded-full text-sm font-bold">
+                        最受欢迎
+                    </div>
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">专业版</h3>
+                        <p class="text-gray-600">适合认真改变的你</p>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-5xl font-black text-gray-800">¥18</span>
+                        <span class="text-gray-600"> / 月</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">无限习惯数量</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">高级数据分析</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">自定义提醒时间</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">成就系统</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">数据导出</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">优先客服支持</span>
+                        </li>
+                    </ul>
+                    <a href="#download" class="block w-full bg-indigo-600 text-white text-center py-4 rounded-full font-bold hover:bg-indigo-700 transition">
+                        开始试用
+                    </a>
+                </div>
+                
+                <!-- Annual Plan -->
+                <div class="pricing-card bg-white rounded-3xl p-10 shadow-lg">
+                    <div class="mb-6">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">年度版</h3>
+                        <p class="text-gray-600">最划算的选择</p>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-5xl font-black text-gray-800">¥168</span>
+                        <span class="text-gray-600"> / 年</span>
+                    </div>
+                    <div class="mb-4">
+                        <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium">
+                            省 ¥48 / 年
+                        </span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">包含所有专业版功能</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">相当于 ¥14 / 月</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">一次付费，全年无忧</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span class="text-gray-700">新功能优先体验</span>
+                        </li>
+                    </ul>
+                    <a href="#download" class="block w-full bg-indigo-600 text-white text-center py-4 rounded-full font-bold hover:bg-indigo-700 transition">
+                        立即购买
+                    </a>
+                </div>
+            </div>
+            
+            <!-- FAQ -->
+            <div class="mt-20 max-w-3xl mx-auto">
+                <h3 class="text-3xl font-bold text-gray-800 text-center mb-8">常见问题</h3>
+                <div class="space-y-4">
+                    <div class="bg-white rounded-2xl p-6 shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">💳 如何订阅？</h4>
+                        <p class="text-gray-600">在 App 内选择订阅方案，通过 Google Play 支付即可完成。支持随时取消。</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">🔄 可以随时取消吗？</h4>
+                        <p class="text-gray-600">当然可以！随时在 Google Play 订阅管理中取消，取消后当前周期仍可继续使用。</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">💰 支持退款吗？</h4>
+                        <p class="text-gray-600">订阅后 7 天内如不满意，可通过 Google Play 申请退款。我们会尽力解决问题。</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">👥 可以多人共享吗？</h4>
+                        <p class="text-gray-600">订阅与 Google 账号绑定，可在同一账号的不同设备上使用。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habit Types -->
+    <section class="py-32 bg-dark text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <span class="bg-white/10 px-6 py-2 rounded-full text-sm font-semibold mb-4 inline-block">适合各种习惯</span>
+                <h2 class="text-5xl md:text-6xl font-black mb-6">
+                    无论你想改变什么
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto">从戒烟戒酒到早睡运动，从戒糖到阅读，每一种坚持都值得尊重</p>
             </div>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="group bg-white/10 backdrop-blur-sm p-8 rounded-3xl text-center hover:bg-white/20 transition-all duration-300 hover:scale-105 cursor-pointer">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition">🚭</div>
+                <div class="group bg-white/5 p-8 rounded-2xl text-center hover:bg-white/10 transition cursor-pointer">
+                    <div class="text-6xl mb-4">🚭</div>
                     <p class="font-bold text-lg">戒烟</p>
                 </div>
-                <div class="group bg-white/10 backdrop-blur-sm p-8 rounded-3xl text-center hover:bg-white/20 transition-all duration-300 hover:scale-105 cursor-pointer">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition">🍷</div>
+                <div class="group bg-white/5 p-8 rounded-2xl text-center hover:bg-white/10 transition cursor-pointer">
+                    <div class="text-6xl mb-4">🍷</div>
                     <p class="font-bold text-lg">戒酒</p>
                 </div>
-                <div class="group bg-white/10 backdrop-blur-sm p-8 rounded-3xl text-center hover:bg-white/20 transition-all duration-300 hover:scale-105 cursor-pointer">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition">🍬</div>
+                <div class="group bg-white/5 p-8 rounded-2xl text-center hover:bg-white/10 transition cursor-pointer">
+                    <div class="text-6xl mb-4">🍬</div>
                     <p class="font-bold text-lg">戒糖</p>
                 </div>
-                <div class="group bg-white/10 backdrop-blur-sm p-8 rounded-3xl text-center hover:bg-white/20 transition-all duration-300 hover:scale-105 cursor-pointer">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition">😴</div>
+                <div class="group bg-white/5 p-8 rounded-2xl text-center hover:bg-white/10 transition cursor-pointer">
+                    <div class="text-6xl mb-4">😴</div>
                     <p class="font-bold text-lg">早睡</p>
                 </div>
-                <div class="group bg-white/10 backdrop-blur-sm p-8 rounded-3xl text-center hover:bg-white/20 transition-all duration-300 hover:scale-105 cursor-pointer">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition">📱</div>
+                <div class="group bg-white/5 p-8 rounded-2xl text-center hover:bg-white/10 transition cursor-pointer">
+                    <div class="text-6xl mb-4">📱</div>
                     <p class="font-bold text-lg">戒手机</p>
                 </div>
-                <div class="group bg-white/10 backdrop-blur-sm p-8 rounded-3xl text-center hover:bg-white/20 transition-all duration-300 hover:scale-105 cursor-pointer">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition">🏃</div>
+                <div class="group bg-white/5 p-8 rounded-2xl text-center hover:bg-white/10 transition cursor-pointer">
+                    <div class="text-6xl mb-4">🏃</div>
                     <p class="font-bold text-lg">运动</p>
                 </div>
-                <div class="group bg-white/10 backdrop-blur-sm p-8 rounded-3xl text-center hover:bg-white/20 transition-all duration-300 hover:scale-105 cursor-pointer">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition">📚</div>
+                <div class="group bg-white/5 p-8 rounded-2xl text-center hover:bg-white/10 transition cursor-pointer">
+                    <div class="text-6xl mb-4">📚</div>
                     <p class="font-bold text-lg">阅读</p>
                 </div>
-                <div class="group bg-white/10 backdrop-blur-sm p-8 rounded-3xl text-center hover:bg-white/20 transition-all duration-300 hover:scale-105 cursor-pointer">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition">💧</div>
+                <div class="group bg-white/5 p-8 rounded-2xl text-center hover:bg-white/10 transition cursor-pointer">
+                    <div class="text-6xl mb-4">💧</div>
                     <p class="font-bold text-lg">多喝水</p>
                 </div>
             </div>
@@ -361,19 +486,18 @@
     </section>
 
     <!-- Community Section -->
-    <section id="community" class="py-32 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+    <section id="community" class="py-32 bg-indigo-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20">
                 <span class="bg-white px-6 py-2 rounded-full text-sm font-semibold text-indigo-600 mb-4 inline-block shadow-md">互助社区</span>
                 <h2 class="text-5xl md:text-6xl font-black text-gray-800 mb-6">
-                    一群人，走得更<span class="text-gradient">远</span>
+                    一群人，走得更远
                 </h2>
                 <p class="text-xl text-gray-600 max-w-2xl mx-auto">一个人的坚持很难，一群人的陪伴很暖</p>
             </div>
             
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white p-12 rounded-3xl shadow-2xl relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl"></div>
+                <div class="bg-indigo-600 text-white p-12 rounded-3xl shadow-xl">
                     <div class="text-7xl mb-6">💬</div>
                     <h3 class="text-3xl font-black mb-6">分享你的故事</h3>
                     <p class="text-lg opacity-95 mb-8 leading-relaxed">记录你的戒烟/戒酒/坚持历程，分享成功经验和失败教训。你的故事可能帮助到另一个人。</p>
@@ -395,9 +519,9 @@
                 
                 <div class="space-y-6">
                     <!-- Testimonial 1 -->
-                    <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
                         <div class="flex items-center mb-4">
-                            <div class="w-14 h-14 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-2xl mr-4">🎉</div>
+                            <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-2xl mr-4">🎉</div>
                             <div>
                                 <p class="font-bold text-lg">用户 A</p>
                                 <p class="text-sm text-gray-500">戒烟 180 天</p>
@@ -414,9 +538,9 @@
                     </div>
                     
                     <!-- Testimonial 2 -->
-                    <div class="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
                         <div class="flex items-center mb-4">
-                            <div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full flex items-center justify-center text-2xl mr-4">🌟</div>
+                            <div class="w-14 h-14 bg-blue-500 rounded-full flex items-center justify-center text-2xl mr-4">🌟</div>
                             <div>
                                 <p class="font-bold text-lg">用户 B</p>
                                 <p class="text-sm text-gray-500">早睡 90 天</p>
@@ -436,40 +560,10 @@
         </div>
     </section>
 
-    <!-- Stories Section -->
-    <section id="stories" class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <span class="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-600 px-6 py-2 rounded-full text-sm font-semibold mb-4 inline-block">成功故事</span>
-                <h2 class="text-5xl md:text-6xl font-black text-gray-800 mb-6">
-                    他们做到了，<span class="text-gradient">你也可以</span>
-                </h2>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-8 text-center card-hover">
-                    <div class="text-7xl mb-4">🏆</div>
-                    <h3 class="text-4xl font-black text-gray-800 mb-2">365 天</h3>
-                    <p class="text-gray-600 font-medium">最长坚持记录</p>
-                </div>
-                <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-8 text-center card-hover">
-                    <div class="text-7xl mb-4">👥</div>
-                    <h3 class="text-4xl font-black text-gray-800 mb-2">50,000+</h3>
-                    <p class="text-gray-600 font-medium">成功戒烟用户</p>
-                </div>
-                <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl p-8 text-center card-hover">
-                    <div class="text-7xl mb-4">💪</div>
-                    <h3 class="text-4xl font-black text-gray-800 mb-2">85%</h3>
-                    <p class="text-gray-600 font-medium">坚持成功率</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- About Section -->
-    <section id="about" class="py-32 bg-gradient-to-br from-gray-50 to-indigo-50">
+    <section id="about" class="py-32 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="w-24 h-24 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl flex items-center justify-center text-5xl mx-auto mb-8 shadow-xl">
+            <div class="w-24 h-24 bg-indigo-600 rounded-3xl flex items-center justify-center text-5xl mx-auto mb-8 shadow-xl">
                 💪
             </div>
             <h2 class="text-5xl font-black text-gray-800 mb-8">关于我们</h2>
@@ -482,33 +576,21 @@
                 每一次坚持都值得庆祝。
             </p>
             <div class="flex justify-center space-x-6 text-4xl">
-                <span class="hover:scale-125 transition">🎯</span>
-                <span class="hover:scale-125 transition">💪</span>
-                <span class="hover:scale-125 transition">✨</span>
+                <span>🎯</span>
+                <span>💪</span>
+                <span>✨</span>
             </div>
         </div>
     </section>
 
     <!-- Download Section -->
-    <section id="download" class="py-32 gradient-bg text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-30">
-            <div class="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-yellow-300 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <section id="download" class="py-32 bg-indigo-600 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-5xl md:text-6xl font-black mb-6">开始你的改变之旅</h2>
             <p class="text-2xl mb-12 opacity-95">免费下载，立即开始。今天，就是你改变的第一天。</p>
             
-            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-8">
-                <button class="bg-black text-white px-10 py-5 rounded-2xl flex items-center justify-center space-x-4 hover:bg-gray-900 hover:scale-105 transition-all duration-300 shadow-2xl">
-                    <i class="fab fa-apple text-4xl"></i>
-                    <div class="text-left">
-                        <div class="text-xs opacity-70">Download on the</div>
-                        <div class="text-2xl font-bold">App Store</div>
-                    </div>
-                </button>
-                <button class="bg-black text-white px-10 py-5 rounded-2xl flex items-center justify-center space-x-4 hover:bg-gray-900 hover:scale-105 transition-all duration-300 shadow-2xl">
+            <div class="flex justify-center mb-8">
+                <button class="bg-black text-white px-10 py-5 rounded-2xl flex items-center justify-center space-x-4 hover:bg-gray-900 transition shadow-2xl">
                     <i class="fab fa-google-play text-4xl"></i>
                     <div class="text-left">
                         <div class="text-xs opacity-70">Get it on</div>
@@ -516,7 +598,7 @@
                     </div>
                 </button>
             </div>
-            <p class="text-sm opacity-70">支持 iOS 和 Android 平台 • 完全免费 • 无广告</p>
+            <p class="text-sm opacity-70">仅支持 Android 平台 • 完全免费 • 无广告</p>
         </div>
     </section>
 
@@ -526,7 +608,7 @@
             <div class="grid md:grid-cols-4 gap-12">
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-2xl">💪</div>
+                        <div class="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center text-2xl">💪</div>
                         <div>
                             <span class="text-xl font-bold">戒了吗</span>
                             <p class="text-xs text-gray-400">Have You Quit?</p>
@@ -538,8 +620,8 @@
                     <h4 class="font-bold mb-6 text-lg">产品</h4>
                     <ul class="space-y-3 text-gray-400">
                         <li><a href="#features" class="hover:text-white transition">功能</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition">订阅</a></li>
                         <li><a href="#community" class="hover:text-white transition">社区</a></li>
-                        <li><a href="#stories" class="hover:text-white transition">故事</a></li>
                         <li><a href="#download" class="hover:text-white transition">下载</a></li>
                     </ul>
                 </div>
@@ -564,30 +646,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- Scroll Animation Script -->
-    <script>
-        // Simple scroll reveal animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.card-hover, .rounded-3xl').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
