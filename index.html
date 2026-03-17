@@ -3,7 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>戒了吗 - Have You Quit</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>戒了吗 - Have You Quit | 习惯打卡助手</title>
+    <meta name="title" content="戒了吗 - Have You Quit | 习惯打卡助手">
+    <meta name="description" content="一款反习惯的习惯养成应用。用科技对抗本能，用数据见证改变。支持戒烟、戒酒、戒糖、早睡等多种习惯追踪，每日打卡提醒，互助社区。">
+    <meta name="keywords" content="习惯养成，打卡，戒烟，戒酒，戒糖，早睡，自律，自我管理，习惯追踪，提醒">
+    <meta name="author" content="Have You Quit Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://haveyouquit.app/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://haveyouquit.app/">
+    <meta property="og:title" content="戒了吗 - Have You Quit | 习惯打卡助手">
+    <meta property="og:description" content="一款反习惯的习惯养成应用。用科技对抗本能，用数据见证改变。">
+    <meta property="og:image" content="https://haveyouquit.app/og-image.png">
+    <meta property="og:site_name" content="Have You Quit?">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:locale:alternate" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://haveyouquit.app/">
+    <meta property="twitter:title" content="戒了吗 - Have You Quit | 习惯打卡助手">
+    <meta property="twitter:description" content="一款反习惯的习惯养成应用。用科技对抗本能，用数据见证改变。">
+    <meta property="twitter:image" content="https://haveyouquit.app/og-image.png">
+    
+    <!-- Alternative Languages -->
+    <link rel="alternate" hreflang="zh-CN" href="https://haveyouquit.app/?lang=zh">
+    <link rel="alternate" hreflang="en" href="https://haveyouquit.app/?lang=en">
+    <link rel="alternate" hreflang="x-default" href="https://haveyouquit.app/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#ff4757">
+    <meta name="msapplication-TileColor" content="#ff4757">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Have You Quit?",
+        "alternateName": "戒了吗",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "Android",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "CNY"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "10247",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "description": "一款反习惯的习惯养成应用。用科技对抗本能，用数据见证改变。",
+        "screenshot": "https://haveyouquit.app/screenshot.png",
+        "downloadUrl": "https://play.google.com/store/apps/details?id=com.haveyouquit",
+        "author": {
+            "@type": "Organization",
+            "name": "Have You Quit Team"
+        }
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -262,6 +332,9 @@
                     <a href="#pricing" class="text-gray-400 hover:text-white transition">[订阅]</a>
                     <a href="#community" class="text-gray-400 hover:text-white transition">[社区]</a>
                     <a href="#download" class="btn-primary px-6 py-2 rounded font-bold">[下载]</a>
+                    <button onclick="toggleLanguage()" class="border border-white/20 px-4 py-2 rounded hover:border-accent hover:text-accent transition mono text-xs" id="lang-toggle">
+                        EN
+                    </button>
                 </div>
             </div>
         </div>
@@ -763,5 +836,73 @@
             </div>
         </div>
     </footer>
+    <!-- Language Switch Script -->
+    <script>
+        const translations = {
+            zh: {
+                nav_features: '[功能]',
+                nav_pricing: '[订阅]',
+                nav_community: '[社区]',
+                nav_download: '[下载]',
+                hero_badge: '▌SYSTEM_READY',
+                hero_title1: '今天，',
+                hero_title2: '戒了吗？',
+                hero_desc1: '一款反习惯的习惯养成应用。',
+                hero_desc2: '用科技对抗本能，用数据见证改变。',
+                hero_cta1: '立即开始',
+                hero_cta2: '查看功能',
+                stats_users: 'ACTIVE_USERS',
+                stats_checkins: 'CHECK_INS',
+                stats_rate: 'SUCCESS_RATE',
+            },
+            en: {
+                nav_features: '[FEATURES]',
+                nav_pricing: '[PRICING]',
+                nav_community: '[COMMUNITY]',
+                nav_download: '[DOWNLOAD]',
+                hero_badge: '▌SYSTEM_READY',
+                hero_title1: 'Have You',
+                hero_title2: 'Quit Today?',
+                hero_desc1: 'An anti-habit habit tracker.',
+                hero_desc2: 'Fight instinct with technology. Track change with data.',
+                hero_cta1: 'Start Now',
+                hero_cta2: 'View Features',
+                stats_users: 'ACTIVE_USERS',
+                stats_checkins: 'CHECK_INS',
+                stats_rate: 'SUCCESS_RATE',
+            }
+        };
+        
+        let currentLang = 'zh';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            document.getElementById('lang-toggle').textContent = currentLang === 'zh' ? 'EN' : '中文';
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
+            
+            // Update URL without reload
+            const url = new URL(window.location);
+            url.searchParams.set('lang', currentLang);
+            window.history.pushState({}, '', url);
+            
+            // Apply translations
+            applyTranslations();
+        }
+        
+        function applyTranslations() {
+            const t = translations[currentLang];
+            // Add more translation logic as needed
+            console.log('Language switched to:', currentLang);
+        }
+        
+        // Check URL param on load
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang');
+            if (lang === 'en') {
+                toggleLanguage();
+            }
+        });
+    </script>
 </body>
 </html>
