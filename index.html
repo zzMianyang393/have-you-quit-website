@@ -328,10 +328,10 @@
                     </div>
                 </div>
                 <div class="hidden md:flex items-center space-x-8 mono text-sm">
-                    <a href="#features" class="text-gray-400 hover:text-white transition">[功能]</a>
-                    <a href="#pricing" class="text-gray-400 hover:text-white transition">[订阅]</a>
-                    <a href="#community" class="text-gray-400 hover:text-white transition">[社区]</a>
-                    <a href="#download" class="btn-primary px-6 py-2 rounded font-bold">[下载]</a>
+                    <a href="#features" class="text-gray-400 hover:text-white transition" data-i18n="nav_features">[功能]</a>
+                    <a href="#pricing" class="text-gray-400 hover:text-white transition" data-i18n="nav_pricing">[订阅]</a>
+                    <a href="#community" class="text-gray-400 hover:text-white transition" data-i18n="nav_community">[社区]</a>
+                    <a href="#download" class="btn-primary px-6 py-2 rounded font-bold" data-i18n="nav_download">[下载]</a>
                     <button onclick="toggleLanguage()" class="border border-white/20 px-4 py-2 rounded hover:border-accent hover:text-accent transition mono text-xs" id="lang-toggle">
                         EN
                     </button>
@@ -793,13 +793,13 @@
     <!-- Contact CTA Section -->
     <section class="py-20 border-t border-white/10">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-black mb-8 mono">需要帮助？</h2>
-            <p class="text-xl text-gray-400 mb-8">有问题或建议？我们随时为你提供帮助</p>
+            <h2 class="text-4xl font-black mb-8 mono" data-i18n="contact_cta_title">需要帮助？</h2>
+            <p class="text-xl text-gray-400 mb-8" data-i18n="contact_cta_desc">有问题或建议？我们随时为你提供帮助</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/contact.html" class="inline-block bg-white text-dark px-10 py-5 rounded-2xl font-bold mono text-lg hover:bg-accent hover:text-white transition">
+                <a href="/contact.html" class="inline-block bg-white text-dark px-10 py-5 rounded-2xl font-bold mono text-lg hover:bg-accent hover:text-white transition" data-i18n="contact_btn">
                     [联系我们]
                 </a>
-                <a href="/feedback.html" class="inline-block border border-white/20 px-10 py-5 rounded-2xl font-bold mono text-lg hover:border-accent hover:text-accent transition">
+                <a href="/feedback.html" class="inline-block border border-white/20 px-10 py-5 rounded-2xl font-bold mono text-lg hover:border-accent hover:text-accent transition" data-i18n="feedback_btn">
                     [反馈建议]
                 </a>
             </div>
@@ -832,23 +832,23 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-6 mono text-sm">[支持]</h4>
+                    <h4 class="font-bold mb-6 mono text-sm" data-i18n="footer_support">[支持]</h4>
                     <ul class="space-y-3 text-gray-400 text-sm mono">
-                        <li><a href="/contact.html" class="hover:text-accent transition">[联系我们]</a></li>
-                        <li><a href="/feedback.html" class="hover:text-accent transition">[反馈建议]</a></li>
-                        <li><a href="/community.html" class="hover:text-accent transition">[社区]</a></li>
+                        <li><a href="/contact.html" class="hover:text-accent transition" data-i18n="footer_contact">[联系我们]</a></li>
+                        <li><a href="/feedback.html" class="hover:text-accent transition" data-i18n="footer_feedback">[反馈建议]</a></li>
+                        <li><a href="/community.html" class="hover:text-accent transition" data-i18n="footer_community">[社区]</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-6 mono text-sm">[法律]</h4>
+                    <h4 class="font-bold mb-6 mono text-sm" data-i18n="footer_legal">[法律]</h4>
                     <ul class="space-y-3 text-gray-400 text-sm mono">
-                        <li><a href="/privacy.html" class="hover:text-accent transition">[隐私政策]</a></li>
-                        <li><a href="/terms.html" class="hover:text-accent transition">[服务条款]</a></li>
+                        <li><a href="/privacy.html" class="hover:text-accent transition" data-i18n="footer_privacy">[隐私政策]</a></li>
+                        <li><a href="/terms.html" class="hover:text-accent transition" data-i18n="footer_terms">[服务条款]</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-white/10 mt-12 pt-8 text-center text-gray-500 text-xs mono">
-                <p>© 2026 HAVE YOU QUIT? // ALL RIGHTS RESERVED</p>
+                <p data-i18n="footer_copy">© 2026 HAVE YOU QUIT? // ALL RIGHTS RESERVED</p>
             </div>
         </div>
     </footer>
@@ -867,9 +867,38 @@
                 hero_desc2: '用科技对抗本能，用数据见证改变。',
                 hero_cta1: '立即开始',
                 hero_cta2: '查看功能',
-                stats_users: 'ACTIVE_USERS',
-                stats_checkins: 'CHECK_INS',
-                stats_rate: 'SUCCESS_RATE',
+                stats_users: '活跃用户',
+                stats_checkins: '累计打卡',
+                stats_rate: '坚持成功率',
+                features_section: '[01] 核心功能',
+                features_title: '功能_',
+                features_subtitle: '详解',
+                features_desc: '每一个功能都为坚持而生',
+                pricing_section: '[02] 订阅方案',
+                pricing_title: 'PRICING_',
+                pricing_subtitle: 'PLAN',
+                pricing_desc: '透明定价，按需选择',
+                community_section: '[03] 用户社区',
+                community_title: 'USER_',
+                community_subtitle: 'STORIES',
+                download_section: '[04] 立即开始',
+                download_title: 'START_',
+                download_subtitle: 'NOW',
+                download_desc: '免费下载，立即开始。今天，就是你改变的第一天。',
+                download_note: '仅支持 Android 平台 • 完全免费 • 无广告',
+                contact_cta_title: '需要帮助？',
+                contact_cta_desc: '有问题或建议？我们随时为你提供帮助',
+                contact_btn: '[联系我们]',
+                feedback_btn: '[反馈建议]',
+                footer_support: '[支持]',
+                footer_legal: '[法律]',
+                footer_contact: '[联系我们]',
+                footer_feedback: '[反馈建议]',
+                footer_community: '[社区]',
+                footer_privacy: '[隐私政策]',
+                footer_terms: '[服务条款]',
+                footer_desc: '每一次坚持，都是对更好自己的投资。',
+                footer_copy: '© 2026 HAVE YOU QUIT? // ALL RIGHTS RESERVED',
             },
             en: {
                 nav_features: '[FEATURES]',
@@ -883,9 +912,38 @@
                 hero_desc2: 'Fight instinct with technology. Track change with data.',
                 hero_cta1: 'Start Now',
                 hero_cta2: 'View Features',
-                stats_users: 'ACTIVE_USERS',
-                stats_checkins: 'CHECK_INS',
-                stats_rate: 'SUCCESS_RATE',
+                stats_users: 'Active Users',
+                stats_checkins: 'Total Check-ins',
+                stats_rate: 'Success Rate',
+                features_section: '[01] FEATURES',
+                features_title: 'FEATURES_',
+                features_subtitle: 'DETAILS',
+                features_desc: 'Every feature built for persistence',
+                pricing_section: '[02] PRICING',
+                pricing_title: 'PRICING_',
+                pricing_subtitle: 'PLAN',
+                pricing_desc: 'Transparent pricing, choose as needed',
+                community_section: '[03] COMMUNITY',
+                community_title: 'USER_',
+                community_subtitle: 'STORIES',
+                download_section: '[04] GET STARTED',
+                download_title: 'START_',
+                download_subtitle: 'NOW',
+                download_desc: 'Free download, start now. Today is your first day of change.',
+                download_note: 'Android Only • Free • No Ads',
+                contact_cta_title: 'Need Help?',
+                contact_cta_desc: 'Have questions? We are here to help',
+                contact_btn: '[Contact Us]',
+                feedback_btn: '[Feedback]',
+                footer_support: '[SUPPORT]',
+                footer_legal: '[LEGAL]',
+                footer_contact: '[Contact Us]',
+                footer_feedback: '[Feedback]',
+                footer_community: '[Community]',
+                footer_privacy: '[Privacy Policy]',
+                footer_terms: '[Terms of Service]',
+                footer_desc: 'Every persistence is an investment in a better you.',
+                footer_copy: '© 2026 HAVE YOU QUIT? // ALL RIGHTS RESERVED',
             }
         };
         
@@ -907,8 +965,18 @@
         
         function applyTranslations() {
             const t = translations[currentLang];
-            // Add more translation logic as needed
-            console.log('Language switched to:', currentLang);
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = t[key];
+                    } else if (el.tagName === 'OPTION') {
+                        el.textContent = t[key];
+                    } else {
+                        el.textContent = t[key];
+                    }
+                }
+            });
         }
         
         // Check URL param on load
