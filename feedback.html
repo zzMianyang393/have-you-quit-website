@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>反馈建议 - 戒了吗 Have You Quit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#ff4757',
+                        dark: '#0a0a0a',
+                        card: '#111111',
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: 'Noto Sans SC', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        html { scroll-behavior: smooth; }
+        
+        .grid-bg {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        
+        .card {
+            background: rgba(17, 17, 17, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card:hover {
+            border-color: rgba(255, 71, 87, 0.5);
+            transform: translateY(-4px);
+        }
+        
+        .text-gradient-accent {
+            background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.4;
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+        
+        input, textarea, select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #ff4757;
+            background: rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="grid-bg overflow-x-hidden">
+    <div class="orb bg-red-900 w-96 h-96 top-20 left-20 fixed"></div>
+    <div class="orb bg-purple-900 w-80 h-80 bottom-20 right-20 fixed"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 border-b border-white/10 backdrop-blur-xl bg-dark/80">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-accent rounded flex items-center justify-center text-xl font-black">💪</div>
+                    <div>
+                        <span class="text-xl font-bold mono">HAVE YOU QUIT?</span>
+                        <p class="text-xs text-gray-500 mono">戒了吗 v2.0</p>
+                    </div>
+                </a>
+                <div class="hidden md:flex items-center space-x-8 mono text-sm">
+                    <a href="/#features" class="text-gray-400 hover:text-white transition">[功能]</a>
+                    <a href="/#pricing" class="text-gray-400 hover:text-white transition">[订阅]</a>
+                    <a href="/community.html" class="text-gray-400 hover:text-white transition">[社区]</a>
+                    <a href="/#download" class="bg-white text-dark px-6 py-2 rounded font-bold hover:bg-accent hover:text-white transition">[下载]</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-40 pb-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="mono text-accent text-sm">[FEEDBACK]</span>
+                <h1 class="text-6xl md:text-7xl font-black mt-4 mb-6">
+                    反馈_<span class="text-gradient-accent">建议</span>
+                </h1>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    你的每一条建议，都让我们变得更好
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Categories -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+                <div class="card rounded-2xl p-6">
+                    <div class="w-12 h-12 bg-accent rounded flex items-center justify-center text-xl mb-4">✨</div>
+                    <h3 class="text-lg font-bold mb-2 mono">功能建议</h3>
+                    <p class="text-gray-400 text-sm">希望添加新功能？告诉我们你的想法</p>
+                </div>
+                <div class="card rounded-2xl p-6">
+                    <div class="w-12 h-12 bg-accent rounded flex items-center justify-center text-xl mb-4">🐛</div>
+                    <h3 class="text-lg font-bold mb-2 mono">问题报告</h3>
+                    <p class="text-gray-400 text-sm">遇到 Bug 或错误？帮助我们修复</p>
+                </div>
+                <div class="card rounded-2xl p-6">
+                    <div class="w-12 h-12 bg-accent rounded flex items-center justify-center text-xl mb-4">🎨</div>
+                    <h3 class="text-lg font-bold mb-2 mono">设计优化</h3>
+                    <p class="text-gray-400 text-sm">界面或体验需要改进？提出建议</p>
+                </div>
+                <div class="card rounded-2xl p-6">
+                    <div class="w-12 h-12 bg-accent rounded flex items-center justify-center text-xl mb-4">💡</div>
+                    <h3 class="text-lg font-bold mb-2 mono">其他想法</h3>
+                    <p class="text-gray-400 text-sm">任何其他想法都欢迎分享</p>
+                </div>
+            </div>
+            
+            <!-- Recent Feedback -->
+            <div class="mb-20">
+                <h2 class="text-3xl font-black mb-8 mono">[已采纳的建议]</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card rounded-2xl p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-2xl">📊</span>
+                                <div>
+                                    <h3 class="font-bold">数据统计图表优化</h3>
+                                    <p class="text-xs text-gray-500 mono">由 USER_123 建议</p>
+                                </div>
+                            </div>
+                            <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded text-xs mono">已实现</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">"建议增加周/月/年的数据对比图表，更直观看到进步趋势"</p>
+                    </div>
+                    
+                    <div class="card rounded-2xl p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-2xl">⏰</span>
+                                <div>
+                                    <h3 class="font-bold">多个提醒时间</h3>
+                                    <p class="text-xs text-gray-500 mono">由 USER_456 建议</p>
+                                </div>
+                            </div>
+                            <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded text-xs mono">已实现</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">"希望可以为一个习惯设置多个提醒时间，比如早晚各一次"</p>
+                    </div>
+                    
+                    <div class="card rounded-2xl p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-2xl">🌙</span>
+                                <div>
+                                    <h3 class="font-bold">深色模式</h3>
+                                    <p class="text-xs text-gray-500 mono">由 USER_789 建议</p>
+                                </div>
+                            </div>
+                            <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded text-xs mono">开发中</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">"建议添加深色模式，晚上使用不刺眼"</p>
+                    </div>
+                    
+                    <div class="card rounded-2xl p-6">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-2xl">📤</span>
+                                <div>
+                                    <h3 class="font-bold">数据导出功能</h3>
+                                    <p class="text-xs text-gray-500 mono">由 USER_101 建议</p>
+                                </div>
+                            </div>
+                            <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded text-xs mono">开发中</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">"希望能导出打卡数据为 CSV 或 PDF 格式，方便保存"</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feedback Form -->
+            <div class="max-w-3xl mx-auto">
+                <div class="card rounded-2xl p-10">
+                    <h2 class="text-3xl font-black mb-2 mono">[提交建议]</h2>
+                    <p class="text-gray-400 mb-8">告诉我们你的想法，每一条建议我们都会认真阅读</p>
+                    
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold mb-2 mono">[姓名/昵称]</label>
+                                <input type="text" placeholder="如何称呼你" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-2 mono">[邮箱]</label>
+                                <input type="email" placeholder="用于回复你的建议" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-bold mb-2 mono">[建议类型]</label>
+                            <select class="w-full px-4 py-3 rounded-lg text-white">
+                                <option value="">请选择类型</option>
+                                <option value="feature">功能建议</option>
+                                <option value="bug">问题报告</option>
+                                <option value="design">设计优化</option>
+                                <option value="content">内容建议</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-bold mb-2 mono">[建议标题]</label>
+                            <input type="text" placeholder="用一句话概括你的建议" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-bold mb-2 mono">[详细描述]</label>
+                            <textarea rows="8" placeholder="请详细描述你的建议&#10;&#10;如果是功能建议：&#10;- 这个功能解决什么问题？&#10;- 你希望如何使用它？&#10;- 有什么参考案例吗？&#10;&#10;如果是问题报告：&#10;- 问题出现在什么情况下？&#10;- 如何复现这个问题？&#10;- 你使用的设备和系统版本" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 resize-none"></textarea>
+                        </div>
+                        
+                        <div class="flex items-center space-x-2">
+                            <input type="checkbox" id="contact-me" class="w-4 h-4">
+                            <label for="contact-me" class="text-sm text-gray-400">如果需要进一步沟通，请通过邮箱联系我</label>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-accent text-white py-4 rounded-lg font-bold mono hover:bg-red-600 transition">
+                            [提交建议]
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-accent rounded flex items-center justify-center text-xl">💪</div>
+                        <div>
+                            <span class="text-lg font-bold mono">HAVE YOU QUIT?</span>
+                            <p class="text-xs text-gray-500 mono">戒了吗</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm mono">每一次坚持，都是对更好自己的投资。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 mono text-sm">[导航]</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm mono">
+                        <li><a href="/#features" class="hover:text-accent transition">[功能]</a></li>
+                        <li><a href="/#pricing" class="hover:text-accent transition">[订阅]</a></li>
+                        <li><a href="/community.html" class="hover:text-accent transition">[社区]</a></li>
+                        <li><a href="/#download" class="hover:text-accent transition">[下载]</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 mono text-sm">[支持]</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm mono">
+                        <li><a href="/help.html" class="hover:text-accent transition">[帮助中心]</a></li>
+                        <li><a href="/contact.html" class="hover:text-accent transition">[联系我们]</a></li>
+                        <li><a href="/feedback.html" class="text-accent transition">[反馈建议]</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 mono text-sm">[法律]</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm mono">
+                        <li><a href="/privacy.html" class="hover:text-accent transition">[隐私政策]</a></li>
+                        <li><a href="/terms.html" class="hover:text-accent transition">[服务条款]</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-12 pt-8 text-center text-gray-500 text-xs mono">
+                <p>© 2026 HAVE YOU QUIT? // ALL RIGHTS RESERVED</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
