@@ -175,6 +175,19 @@
             transform: scale(1.05);
         }
         
+        /* English mode - smaller hero title to prevent line breaks */
+        html[lang="en"] #hero-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+        }
+        
+        html[lang="en"] #hero-title br {
+            display: none;
+        }
+        
+        html[lang="en"] #hero-title {
+            white-space: nowrap;
+        }
+        
         /* Marquee */
         .marquee {
             overflow: hidden;
@@ -349,7 +362,7 @@
                         <span class="mr-2">▌</span>SYSTEM_READY
                     </div>
                     
-                    <h1 class="text-7xl md:text-8xl lg:text-9xl font-black mb-8 leading-none glitch" data-text="今天，戒了吗？">
+                    <h1 id="hero-title" class="text-7xl md:text-8xl lg:text-9xl font-black mb-8 leading-none glitch" data-text="今天，戒了吗？">
                         <span data-i18n="hero_title1">今天，</span><br/>
                         <span class="text-gradient-accent" data-i18n="hero_title2">戒了吗？</span>
                     </h1>
@@ -1005,6 +1018,12 @@
                     }
                 }
             });
+            
+            // Update glitch effect data-text attribute
+            const heroTitle = document.getElementById('hero-title');
+            if (heroTitle) {
+                heroTitle.setAttribute('data-text', currentLang === 'zh' ? '今天，戒了吗？' : 'Have You Quit Today?');
+            }
         }
         
         // Check URL param on load
